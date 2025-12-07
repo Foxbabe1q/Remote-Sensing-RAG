@@ -1,0 +1,63 @@
+================================================================================
+FACTUAL PRECISION EVALUATION REPORT
+================================================================================
+
+Generated: 2025-12-07 20:11:32
+Total Questions: 20
+Model: gpt-4o-mini
+Evaluation Type: factual_precision
+
+--------------------------------------------------------------------------------
+BASELINE SYSTEM (No RAG)
+--------------------------------------------------------------------------------
+Average Response Time:  3.718 seconds
+Average Number Recall:  2.50%
+Average Number F1:      1.82%
+Perfect Answers:        5/20 (25.0%)
+
+--------------------------------------------------------------------------------
+RAG SYSTEM
+--------------------------------------------------------------------------------
+Average Response Time:  4.306 seconds
+Average Number Recall:  24.67%
+Average Number F1:      19.92%
+Perfect Answers:        9/20 (45.0%)
+Average Sources Used:   3.00
+
+--------------------------------------------------------------------------------
+ACCURACY IMPROVEMENT (RAG vs Baseline)
+--------------------------------------------------------------------------------
+Number Recall:  +22.17%
+Number F1:      +18.10%
+Perfect Answers: +4 (+20.0%)
+
+--------------------------------------------------------------------------------
+CATEGORY BREAKDOWN
+--------------------------------------------------------------------------------
+
+DATASET_FACTS_ISAID:
+  Questions: 6
+  Baseline Avg Recall: 5.56%
+  RAG Avg Recall:      5.56%
+
+DATASET_FACTS_OEM:
+  Questions: 6
+  Baseline Avg Recall: 2.78%
+  RAG Avg Recall:      43.33%
+
+METHOD_METRICS_DEEPLAB:
+  Questions: 3
+  Baseline Avg Recall: 0.00%
+  RAG Avg Recall:      33.33%
+
+METHOD_METRICS_SEGFORMER:
+  Questions: 4
+  Baseline Avg Recall: 0.00%
+  RAG Avg Recall:      25.00%
+
+OTHER_FACTS:
+  Questions: 1
+  Baseline Avg Recall: 0.00%
+  RAG Avg Recall:      0.00%
+
+================================================================================

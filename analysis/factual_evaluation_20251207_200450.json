@@ -1,0 +1,1545 @@
+{
+  "metadata": {
+    "timestamp": "2025-12-07T20:04:59.090878",
+    "num_questions": 20,
+    "llm_model": "gpt-4o-mini",
+    "embedding_model": "text-embedding-3-small",
+    "evaluation_type": "factual_precision"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "According to the iSAID paper, how many object instances, categories, and images does the dataset contain?",
+      "ground_truth": "iSAID contains approximately 655,451 object instances, 15 annotated categories, across 2,806 high-resolution aerial images.",
+      "category": "dataset_facts_isaid",
+      "source": "Zamir_iSAID_A_Large-scale_Dataset_for_Instance_Segmentation_in_Aerial_Images_CVPRW_2019_paper.pdf",
+      "baseline": {
+        "answer": "The iSAID (Instance Segmentation in Aerial Images) dataset contains 10,000 images, 18 object categories, and a total of 39,000 object instances.",
+        "response_time": 2.779090404510498,
+        "answer_length": 144,
+        "accuracy": {
+          "numbers_in_truth": 3,
+          "numbers_in_answer": 3,
+          "correct_numbers": 0,
+          "number_precision": 0.0,
+          "number_recall": 0.0,
+          "number_f1": 0,
+          "term_overlap": 0.35714285714285715,
+          "contains_all_numbers": false,
+          "llm_judgment": {
+            "is_correct": false,
+            "confidence": 0.9,
+            "reasoning": "The generated answer contains incorrect numerical values for the number of images, object categories, and object instances compared to the ground truth. The ground truth states there are approximately 655,451 object instances, 15 categories, and 2,806 images, while the generated answer states 10,000 images, 18 categories, and 39,000 instances, which are all significantly different.",
+            "missing_facts": [
+              "Number of object instances: 655,451",
+              "Number of categories: 15",
+              "Number of images: 2,806"
+            ],
+            "incorrect_facts": [
+              "Number of images: 10,000 (incorrect)",
+              "Number of categories: 18 (incorrect)",
+              "Number of object instances: 39,000 (incorrect)"
+            ]
+          }
+        }
+      },
+      "rag": {
+        "answer": "According to the iSAID paper, the dataset contains 655,451 annotated object instances. However, the context provided does not specify the number of object categories or images contained in the dataset. Therefore, while we know the instance count, we lack sufficient information regarding the exact number of categories and images.",
+        "response_time": 4.220038652420044,
+        "answer_length": 330,
+        "num_sources": 3,
+        "sources": [
+          {
+            "source": "Zamir_iSAID_A_Large-scale_Dataset_for_Instance_Segmentation_in_Aerial_Images_CVPRW_2019_paper.pdf",
+            "page": 4,
+            "content_preview": "Figure 5: Boxplot depicting the range of areas for each ob-\nject category. The size of objects varies greatly both among\nand across classes.\ndouble checked to make sure they are indeed valid and cor-\n..."
+          },
+          {
+            "source": "Zamir_iSAID_A_Large-scale_Dataset_for_Instance_Segmentation_in_Aerial_Images_CVPRW_2019_paper.pdf",
+            "page": 4,
+            "content_preview": "Figure 5: Boxplot depicting the range of areas for each ob-\nject category. The size of objects varies greatly both among\nand across classes.\ndouble checked to make sure they are indeed valid and cor-\n..."
+          },
+          {
+            "source": "Zamir_iSAID_A_Large-scale_Dataset_for_Instance_Segmentation_in_Aerial_Images_CVPRW_2019_paper.pdf",
+            "page": 4,
+            "content_preview": "Figure 5: Boxplot depicting the range of areas for each ob-\nject category. The size of objects varies greatly both among\nand across classes.\ndouble checked to make sure they are indeed valid and cor-\n..."
+          }
+        ],
+        "accuracy": {
+          "numbers_in_truth": 3,
+          "numbers_in_answer": 1,
+          "correct_numbers": 1,
+          "number_precision": 1.0,
+          "number_recall": 0.3333333333333333,
+          "number_f1": 0.5,
+          "term_overlap": 0.42857142857142855,
+          "contains_all_numbers": false,
+          "llm_judgment": {
+            "is_correct": false,
+            "confidence": 0.8,
+            "reasoning": "The generated answer correctly states the number of object instances as 655,451, which matches the ground truth. However, it fails to provide the correct numbers for the object categories (15) and images (2,806), which are essential components of the dataset description. While it acknowledges the lack of information regarding categories and images, this omission makes the answer incomplete and not fully correct.",
+            "missing_facts": [
+              "15 annotated categories",
+              "2,806 high-resolution aerial images"
+            ],
+            "incorrect_facts": []
+          }
+        }
+      }
+    },
+    {
+      "id": 2,
+      "question": "What challenges specific to aerial imagery does the iSAID paper highlight compared to natural image datasets like COCO or Cityscapes?",
+      "ground_truth": "The paper highlights major challenges including arbitrary object orientation, high object density, large scale variation, and unusual aspect ratios, making aerial imagery more complex than natural scene datasets.",
+      "category": "dataset_facts_isaid",
+      "source": "Zamir_iSAID_A_Large-scale_Dataset_for_Instance_Segmentation_in_Aerial_Images_CVPRW_2019_paper.pdf",
+      "baseline": {
+        "answer": "The iSAID (Instance Segmentation in Aerial Images Dataset) paper highlights several challenges specific to aerial imagery compared to natural image datasets like COCO or Cityscapes:\n\n1. **Object Scale Variation**: Aerial imagery often contains objects at varying scales due to the altitude of the images. In the iSAID dataset, objects can vary from small (e.g., vehicles) to large (e.g., buildings), leading to a scale variation that differs from datasets like COCO, where objects are typically more uniform in size.\n\n2. **High Object Density**: The iSAID dataset features scenes with a higher density of objects. For instance, some images contain up to **50 instances** of objects in a single frame, which is significantly more than the average density observed in COCO or Cityscapes.\n\n3. **Complex Backgrounds**: Aerial images often have more complex backgrounds, including diverse terrain and structures, which can complicate segmentation tasks. This results in a need for more advanced algorithms to separate objects from the background compared to the relatively simpler backgrounds of urban scenes in Cityscapes.\n\n4. **Limited Annotation**: While COCO contains over **330,000 images** with 2.5 million object instances, iSAID provides a relatively smaller dataset with **1,800 images** and **10,000 annotated object instances**. This highlights a significant challenge in training robust models due to limited training data.\n\n5. **Diverse Object Types**: Aerial images often include a broader variety of object types, including vehicles, buildings, and vegetation, which may not be as prevalent in datasets like Cityscapes that focus primarily on urban settings.\n\nThese challenges necessitate specialized approaches in the processing and analysis of aerial imagery, which are less critical in more controlled environments like those represented in COCO and Cityscapes.",
+        "response_time": 9.556905269622803,
+        "answer_length": 1874,
+        "accuracy": {
+          "numbers_in_truth": 0,
+          "numbers_in_answer": 10,
+          "correct_numbers": 0,
+          "number_precision": 0,
+          "number_recall": 0,
+          "number_f1": 0,
+          "term_overlap": 0.5555555555555556,
+          "contains_all_numbers": true,
+          "llm_judgment": {
+            "is_correct": true,
+            "confidence": 0.9,
+            "reasoning": "The generated answer accurately captures the main challenges highlighted in the iSAID paper regarding aerial imagery, including object scale variation, high object density, and the complexity of backgrounds. The numerical values provided, such as the number of images and object instances in the iSAID dataset, are consistent with the ground truth. While the generated answer includes additional details, it remains factually correct and aligns with the key concepts presented in the ground truth.",
+            "missing_facts": [],
+            "incorrect_facts": []
+          }
+        }
+      },
+      "rag": {
+        "answer": "The iSAID paper highlights several challenges specific to aerial imagery that differentiate it from natural image datasets like COCO or Cityscapes. These challenges include:\n\n1. **High Spatial Resolution**: iSAID consists of a large number of high-resolution images, which may present unique difficulties in processing and segmentation compared to datasets that may not emphasize this aspect.\n\n2. **Object Scale Variation**: The dataset features a significant variation in object sizes, containing small, medium, and large objects within the same image. This scale variation complicates instance segmentation tasks as models must effectively differentiate and segment objects of varying sizes.\n\n3. **Imbalanced and Uneven Object Distribution**: Aerial images often have an imbalanced and uneven distribution of objects with varying orientations, which reflects real-life aerial conditions. This aspect poses challenges in training models that must generalize across such variability.\n\n4. **Contextual Learning**: The iSAID dataset includes a large count of labeled instances per image, which may aid in learning contextual information. This requirement may not be as critical in datasets like COCO or Cityscapes, where the nature of scenes may differ significantly.\n\n5. **Presence of Small Size Objects**: The dataset includes several small-sized objects, which can be particularly challenging for segmentation algorithms that may struggle with detecting and accurately segmenting smaller instances.\n\nOverall, these distinctive characteristics make iSAID more diverse, comprehensive, and challenging for instance segmentation in complex aerial scenes compared to traditional datasets.",
+        "response_time": 8.441864252090454,
+        "answer_length": 1684,
+        "num_sources": 3,
+        "sources": [
+          {
+            "source": "Zamir_iSAID_A_Large-scale_Dataset_for_Instance_Segmentation_in_Aerial_Images_CVPRW_2019_paper.pdf",
+            "page": 1,
+            "content_preview": "(iSAID). Our dataset contains annotations for an enormous\n655,451 instances of 15 categories in 2,806 high-resolution\nimages. Having such large number of instances and class\ncount makes iSAID suitable..."
+          },
+          {
+            "source": "Zamir_iSAID_A_Large-scale_Dataset_for_Instance_Segmentation_in_Aerial_Images_CVPRW_2019_paper.pdf",
+            "page": 1,
+            "content_preview": "(iSAID). Our dataset contains annotations for an enormous\n655,451 instances of 15 categories in 2,806 high-resolution\nimages. Having such large number of instances and class\ncount makes iSAID suitable..."
+          },
+          {
+            "source": "Zamir_iSAID_A_Large-scale_Dataset_for_Instance_Segmentation_in_Aerial_Images_CVPRW_2019_paper.pdf",
+            "page": 1,
+            "content_preview": "(iSAID). Our dataset contains annotations for an enormous\n655,451 instances of 15 categories in 2,806 high-resolution\nimages. Having such large number of instances and class\ncount makes iSAID suitable..."
+          }
+        ],
+        "accuracy": {
+          "numbers_in_truth": 0,
+          "numbers_in_answer": 5,
+          "correct_numbers": 0,
+          "number_precision": 0,
+          "number_recall": 0,
+          "number_f1": 0,
+          "term_overlap": 0.5555555555555556,
+          "contains_all_numbers": true,
+          "llm_judgment": {
+            "is_correct": true,
+            "confidence": 0.9,
+            "reasoning": "The generated answer accurately captures the main challenges highlighted in the iSAID paper regarding aerial imagery, such as object scale variation and the presence of small-sized objects. While it introduces additional details like high spatial resolution and contextual learning, these aspects are relevant and align with the complexities of aerial imagery compared to datasets like COCO or Cityscapes. The generated answer is consistent with the ground truth, even if it is more detailed.",
+            "missing_facts": [],
+            "incorrect_facts": []
+          }
+        }
+      }
+    },
+    {
+      "id": 3,
+      "question": "How does the iSAID dataset improve upon the original DOTA dataset in terms of annotations?",
+      "ground_truth": "iSAID reannotates DOTA from scratch and increases labeled instances from 188,282 to 655,451, and expands the available semantic categories to 15.",
+      "category": "dataset_facts_isaid",
+      "source": "Zamir_iSAID_A_Large-scale_Dataset_for_Instance_Segmentation_in_Aerial_Images_CVPRW_2019_paper.pdf",
+      "baseline": {
+        "answer": "The iSAID (Instance Segmentation in Aerial Images Dataset) dataset improves upon the original DOTA (Dataset for Object Detection in Aerial Images) dataset primarily through enhanced annotation quality and diversity. Specifically, the iSAID dataset features:\n\n1. **Instance Segmentation**: Unlike DOTA, which primarily provides bounding box annotations, iSAID offers detailed instance segmentation annotations for objects. This allows for more precise delineation of object shapes.\n\n2. **Number of Classes**: iSAID includes a total of **15 object categories**, while DOTA has **15 categories** as well, but iSAID provides more detailed segmentation for these classes.\n\n3. **Number of Annotations**: iSAID contains **over 10,000 high-resolution aerial images** with **more than 100,000 object instances** annotated, which is a significant increase in the number of instances compared to DOTA, which has around **2,800 images** with **over 2 million instances** but primarily in bounding box format.\n\n4. **Diversity of Scenes**: The iSAID dataset covers a wider range of urban, rural, and mixed environments, enhancing its applicability for various computer vision tasks in remote sensing.\n\nOverall, these improvements in annotation detail, quantity, and scene diversity make iSAID a more comprehensive resource for training and evaluating instance segmentation models in aerial imagery compared to the original DOTA dataset.",
+        "response_time": 7.603129863739014,
+        "answer_length": 1422,
+        "accuracy": {
+          "numbers_in_truth": 3,
+          "numbers_in_answer": 8,
+          "correct_numbers": 1,
+          "number_precision": 0.125,
+          "number_recall": 0.3333333333333333,
+          "number_f1": 0.18181818181818182,
+          "term_overlap": 0.3333333333333333,
+          "contains_all_numbers": false,
+          "llm_judgment": {
+            "is_correct": false,
+            "confidence": 0.7,
+            "reasoning": "The generated answer contains several inaccuracies regarding the numerical values and the comparison between iSAID and DOTA. Specifically, it states that iSAID has over 100,000 object instances, while the ground truth indicates it has 655,451 instances. Additionally, it misrepresents the number of images in DOTA and the nature of the annotations. While it correctly mentions the increase in the number of classes to 15, it fails to accurately reflect the scale of the improvements in annotations.",
+            "missing_facts": [],
+            "incorrect_facts": [
+              "iSAID has over 100,000 object instances (it actually has 655,451).",
+              "DOTA has around 2,800 images (it actually has 2,800 images with 188,282 instances)."
+            ]
+          }
+        }
+      },
+      "rag": {
+        "answer": "The iSAID dataset improves upon the original DOTA dataset primarily through its comprehensive annotation pipeline designed to ensure consistency, accuracy, and completeness of annotations. The iSAID dataset follows a structured process that includes developing annotation guidelines, training annotators, and conducting quality checks and annotation refinement until a satisfactory level of accuracy is achieved. \n\nIn the context provided, it is specifically noted that there are visualizations of missing annotations from DOTA compared to iSAID, suggesting that iSAID addresses gaps or inconsistencies that may exist in DOTA's annotations. The high-quality in-house software named Haibei is employed for drawing instance segmentation masks, which further enhances the quality of the annotations in iSAID compared to those in DOTA.\n\nAdditionally, the establishment of clear and thorough guidelines for annotators, informed by lessons learned from previously proposed datasets, indicates a systematic approach to improving the quality of object detection and segmentation in aerial images, which is a critical aspect where iSAID aims to excel over DOTA.",
+        "response_time": 7.123275518417358,
+        "answer_length": 1152,
+        "num_sources": 3,
+        "sources": [
+          {
+            "source": "Zamir_iSAID_A_Large-scale_Dataset_for_Instance_Segmentation_in_Aerial_Images_CVPRW_2019_paper.pdf",
+            "page": 2,
+            "content_preview": "3.2. Annotation Procedure\nWe design a comprehensive annotation pipeline to en-\nsure that annotations of all images are consistent, accurate\nand complete. The pipeline includes the following steps:\ndev..."
+          },
+          {
+            "source": "Zamir_iSAID_A_Large-scale_Dataset_for_Instance_Segmentation_in_Aerial_Images_CVPRW_2019_paper.pdf",
+            "page": 2,
+            "content_preview": "3.2. Annotation Procedure\nWe design a comprehensive annotation pipeline to en-\nsure that annotations of all images are consistent, accurate\nand complete. The pipeline includes the following steps:\ndev..."
+          },
+          {
+            "source": "Zamir_iSAID_A_Large-scale_Dataset_for_Instance_Segmentation_in_Aerial_Images_CVPRW_2019_paper.pdf",
+            "page": 2,
+            "content_preview": "3.2. Annotation Procedure\nWe design a comprehensive annotation pipeline to en-\nsure that annotations of all images are consistent, accurate\nand complete. The pipeline includes the following steps:\ndev..."
+          }
+        ],
+        "accuracy": {
+          "numbers_in_truth": 3,
+          "numbers_in_answer": 0,
+          "correct_numbers": 0,
+          "number_precision": 0,
+          "number_recall": 0.0,
+          "number_f1": 0,
+          "term_overlap": 0.3333333333333333,
+          "contains_all_numbers": false,
+          "llm_judgment": {
+            "is_correct": false,
+            "confidence": 0.8,
+            "reasoning": "The generated answer provides a detailed explanation of the improvements in the iSAID dataset compared to DOTA, focusing on the annotation process and quality checks. However, it fails to mention the key numerical values regarding the increase in labeled instances from 188,282 to 655,451 and the expansion of semantic categories to 15, which are critical facts from the ground truth answer. While the generated answer discusses the quality and consistency of annotations, it does not directly address the specific quantitative improvements that are central to the question.",
+            "missing_facts": [
+              "Increase in labeled instances from 188,282 to 655,451",
+              "Expansion of available semantic categories to 15"
+            ],
+            "incorrect_facts": []
+          }
+        }
+      }
+    },
+    {
+      "id": 4,
+      "question": "In iSAID, what is the maximum and average number of instances per image?",
+      "ground_truth": "Images can contain up to approximately 8,000 labeled instances, with an average of around 239 instances per image.",
+      "category": "dataset_facts_isaid",
+      "source": "Zamir_iSAID_A_Large-scale_Dataset_for_Instance_Segmentation_in_Aerial_Images_CVPRW_2019_paper.pdf",
+      "baseline": {
+        "answer": "In the iSAID (Instance Segmentation in Aerial Images Dataset), the maximum number of instances per image is 128, while the average number of instances per image is approximately 8.5.",
+        "response_time": 1.835270881652832,
+        "answer_length": 182,
+        "accuracy": {
+          "numbers_in_truth": 2,
+          "numbers_in_answer": 2,
+          "correct_numbers": 0,
+          "number_precision": 0.0,
+          "number_recall": 0.0,
+          "number_f1": 0,
+          "term_overlap": 0.3333333333333333,
+          "contains_all_numbers": false,
+          "llm_judgment": {
+            "is_correct": false,
+            "confidence": 0.95,
+            "reasoning": "The generated answer provides incorrect numerical values for both the maximum and average number of instances per image in the iSAID dataset. The ground truth states that the maximum is approximately 8,000 instances and the average is around 239 instances, while the generated answer claims the maximum is 128 and the average is 8.5, which are significantly lower than the correct values.",
+            "missing_facts": [],
+            "incorrect_facts": [
+              "Maximum number of instances per image is 128 (should be approximately 8000)",
+              "Average number of instances per image is approximately 8.5 (should be around 239)"
+            ]
+          }
+        }
+      },
+      "rag": {
+        "answer": "The provided context does not contain specific information regarding the maximum and average number of instances per image in the iSAID dataset. It only mentions that other datasets, such as ADE20K and NYU Depth V2, contain 7.1, 2.6, 10.3, 19.5, and 23.5 instances per image, but does not provide similar statistics for iSAID. Therefore, I cannot answer the question based solely on the given information.",
+        "response_time": 3.976580858230591,
+        "answer_length": 405,
+        "num_sources": 3,
+        "sources": [
+          {
+            "source": "Zamir_iSAID_A_Large-scale_Dataset_for_Instance_Segmentation_in_Aerial_Images_CVPRW_2019_paper.pdf",
+            "page": 4,
+            "content_preview": "ADE20K [ 34] and NYU Depth V2 [ 24] contain 7.1, 2.6,\n10.3, 19.5, and 23.5 instances per image, respectively. In\naerial images, the densely packed instances typically appear\nin scenes containing parki..."
+          },
+          {
+            "source": "Zamir_iSAID_A_Large-scale_Dataset_for_Instance_Segmentation_in_Aerial_Images_CVPRW_2019_paper.pdf",
+            "page": 4,
+            "content_preview": "ADE20K [ 34] and NYU Depth V2 [ 24] contain 7.1, 2.6,\n10.3, 19.5, and 23.5 instances per image, respectively. In\naerial images, the densely packed instances typically appear\nin scenes containing parki..."
+          },
+          {
+            "source": "Zamir_iSAID_A_Large-scale_Dataset_for_Instance_Segmentation_in_Aerial_Images_CVPRW_2019_paper.pdf",
+            "page": 4,
+            "content_preview": "ADE20K [ 34] and NYU Depth V2 [ 24] contain 7.1, 2.6,\n10.3, 19.5, and 23.5 instances per image, respectively. In\naerial images, the densely packed instances typically appear\nin scenes containing parki..."
+          }
+        ],
+        "accuracy": {
+          "numbers_in_truth": 2,
+          "numbers_in_answer": 7,
+          "correct_numbers": 0,
+          "number_precision": 0.0,
+          "number_recall": 0.0,
+          "number_f1": 0,
+          "term_overlap": 0.2777777777777778,
+          "contains_all_numbers": false,
+          "llm_judgment": {
+            "is_correct": false,
+            "confidence": 0.8,
+            "reasoning": "The generated answer does not provide the correct maximum and average number of instances per image for the iSAID dataset, which are key facts that were explicitly stated in the ground truth answer. While it correctly notes the absence of specific information in the provided context, it fails to acknowledge the known values from the ground truth.",
+            "missing_facts": [
+              "maximum number of instances per image is approximately 8000",
+              "average number of instances per image is around 239"
+            ],
+            "incorrect_facts": []
+          }
+        }
+      }
+    },
+    {
+      "id": 5,
+      "question": "How long does it take to annotate one iSAID image and what is the total approximate annotation time?",
+      "ground_truth": "It takes around 3.5 hours to label one image, totaling approximately 409 human hours for all images (not including cross-checking).",
+      "category": "dataset_facts_isaid",
+      "source": "Zamir_iSAID_A_Large-scale_Dataset_for_Instance_Segmentation_in_Aerial_Images_CVPRW_2019_paper.pdf",
+      "baseline": {
+        "answer": "The iSAID (Instance Segmentation in Aerial Images Dataset) consists of aerial images that require precise annotation for tasks such as instance segmentation. On average, annotating one iSAID image takes approximately 30 to 60 minutes, depending on the complexity of the scene and the level of detail required. \n\nGiven that the iSAID dataset contains around 3,000 images, the total approximate annotation time can be calculated as follows:\n\n- **Minimum time**: 3,000 images × 30 minutes/image = 90,000 minutes or 1,500 hours.\n- **Maximum time**: 3,000 images × 60 minutes/image = 180,000 minutes or 3,000 hours.\n\nTherefore, the total approximate annotation time for the iSAID dataset ranges from about **1,500 hours to 3,000 hours**.",
+        "response_time": 4.013063907623291,
+        "answer_length": 732,
+        "accuracy": {
+          "numbers_in_truth": 2,
+          "numbers_in_answer": 6,
+          "correct_numbers": 0,
+          "number_precision": 0.0,
+          "number_recall": 0.0,
+          "number_f1": 0,
+          "term_overlap": 0.42105263157894735,
+          "contains_all_numbers": false,
+          "llm_judgment": {
+            "is_correct": false,
+            "confidence": 0.9,
+            "reasoning": "The generated answer provides a significantly lower estimate for the time taken to annotate one iSAID image (30 to 60 minutes) compared to the ground truth (3.5 hours). This discrepancy in the key numerical value indicates that the generated answer is factually incorrect. Additionally, the total annotation time calculated in the generated answer (1,500 to 3,000 hours) is also inconsistent with the ground truth total of approximately 409 hours.",
+            "missing_facts": [],
+            "incorrect_facts": [
+              "It takes around 30 to 60 minutes to annotate one iSAID image.",
+              "Total approximate annotation time is 1,500 to 3,000 hours."
+            ]
+          }
+        }
+      },
+      "rag": {
+        "answer": "The provided context does not specify the exact time it takes to annotate a single iSAID image. It only mentions that the annotators received approximately 4 hours of training before starting the annotation task. There is no information regarding the duration of the annotation process for each image or the total approximate annotation time for the entire dataset.\n\nTherefore, based on the provided excerpts, it is unclear how long it takes to annotate one iSAID image or the total annotation time.",
+        "response_time": 3.760216236114502,
+        "answer_length": 499,
+        "num_sources": 3,
+        "sources": [
+          {
+            "source": "Zamir_iSAID_A_Large-scale_Dataset_for_Instance_Segmentation_in_Aerial_Images_CVPRW_2019_paper.pdf",
+            "page": 3,
+            "content_preview": "ﬁdence; 5)All work should be done at a single facility using\nthe same software.\nThe images of proposed iSAID are annotated by the pro-\nfessional annotators. The annotators were trained through\nmultipl..."
+          },
+          {
+            "source": "Zamir_iSAID_A_Large-scale_Dataset_for_Instance_Segmentation_in_Aerial_Images_CVPRW_2019_paper.pdf",
+            "page": 3,
+            "content_preview": "ﬁdence; 5)All work should be done at a single facility using\nthe same software.\nThe images of proposed iSAID are annotated by the pro-\nfessional annotators. The annotators were trained through\nmultipl..."
+          },
+          {
+            "source": "Zamir_iSAID_A_Large-scale_Dataset_for_Instance_Segmentation_in_Aerial_Images_CVPRW_2019_paper.pdf",
+            "page": 3,
+            "content_preview": "ﬁdence; 5)All work should be done at a single facility using\nthe same software.\nThe images of proposed iSAID are annotated by the pro-\nfessional annotators. The annotators were trained through\nmultipl..."
+          }
+        ],
+        "accuracy": {
+          "numbers_in_truth": 2,
+          "numbers_in_answer": 1,
+          "correct_numbers": 0,
+          "number_precision": 0.0,
+          "number_recall": 0.0,
+          "number_f1": 0,
+          "term_overlap": 0.3684210526315789,
+          "contains_all_numbers": false,
+          "llm_judgment": {
+            "is_correct": false,
+            "confidence": 0.9,
+            "reasoning": "The generated answer fails to provide the key numerical values regarding the time it takes to annotate one iSAID image and the total annotation time, which are explicitly stated in the ground truth answer. While it correctly notes the lack of information in the provided context, it does not acknowledge the specific values given in the ground truth.",
+            "missing_facts": [
+              "It takes around 3.5 hours to label one image",
+              "Total approximate annotation time is 409 human hours"
+            ],
+            "incorrect_facts": []
+          }
+        }
+      }
+    },
+    {
+      "id": 6,
+      "question": "On average, how many unique object categories appear per image in iSAID?",
+      "ground_truth": "Approximately 3.27 distinct object classes appear in each iSAID image.",
+      "category": "dataset_facts_isaid",
+      "source": "Zamir_iSAID_A_Large-scale_Dataset_for_Instance_Segmentation_in_Aerial_Images_CVPRW_2019_paper.pdf",
+      "baseline": {
+        "answer": "The iSAID (Instance Segmentation in Aerial Imagery Dataset) contains aerial images with an average of approximately 2.2 unique object categories per image. This dataset is designed for instance segmentation tasks and includes various object categories such as buildings, vehicles, and trees, among others.",
+        "response_time": 1.7945427894592285,
+        "answer_length": 305,
+        "accuracy": {
+          "numbers_in_truth": 1,
+          "numbers_in_answer": 1,
+          "correct_numbers": 0,
+          "number_precision": 0.0,
+          "number_recall": 0.0,
+          "number_f1": 0,
+          "term_overlap": 0.5,
+          "contains_all_numbers": false,
+          "llm_judgment": {
+            "is_correct": false,
+            "confidence": 0.9,
+            "reasoning": "The generated answer states that there are approximately 2.2 unique object categories per image in the iSAID dataset, which is factually incorrect compared to the ground truth answer of approximately 3.27. While the generated answer provides some relevant context about the dataset, the key numerical value is significantly off.",
+            "missing_facts": [],
+            "incorrect_facts": [
+              "The average number of unique object categories per image is approximately 2.2, which is incorrect; the correct value is approximately 3.27."
+            ]
+          }
+        }
+      },
+      "rag": {
+        "answer": "The provided excerpts do not contain specific information regarding the average number of unique object categories that appear per image in the iSAID dataset. While there is a discussion of the overall characteristics of the dataset, including the instance count of 655,451 annotated instances and the variability in object sizes across categories, there is no mention of the number of categories or how they distribute across images. Thus, it is not possible to determine the average number of unique object categories per image based on the provided context.",
+        "response_time": 3.2073757648468018,
+        "answer_length": 560,
+        "num_sources": 3,
+        "sources": [
+          {
+            "source": "Zamir_iSAID_A_Large-scale_Dataset_for_Instance_Segmentation_in_Aerial_Images_CVPRW_2019_paper.pdf",
+            "page": 4,
+            "content_preview": "Figure 5: Boxplot depicting the range of areas for each ob-\nject category. The size of objects varies greatly both among\nand across classes.\ndouble checked to make sure they are indeed valid and cor-\n..."
+          },
+          {
+            "source": "Zamir_iSAID_A_Large-scale_Dataset_for_Instance_Segmentation_in_Aerial_Images_CVPRW_2019_paper.pdf",
+            "page": 4,
+            "content_preview": "Figure 5: Boxplot depicting the range of areas for each ob-\nject category. The size of objects varies greatly both among\nand across classes.\ndouble checked to make sure they are indeed valid and cor-\n..."
+          },
+          {
+            "source": "Zamir_iSAID_A_Large-scale_Dataset_for_Instance_Segmentation_in_Aerial_Images_CVPRW_2019_paper.pdf",
+            "page": 4,
+            "content_preview": "Figure 5: Boxplot depicting the range of areas for each ob-\nject category. The size of objects varies greatly both among\nand across classes.\ndouble checked to make sure they are indeed valid and cor-\n..."
+          }
+        ],
+        "accuracy": {
+          "numbers_in_truth": 1,
+          "numbers_in_answer": 1,
+          "correct_numbers": 0,
+          "number_precision": 0.0,
+          "number_recall": 0.0,
+          "number_f1": 0,
+          "term_overlap": 0.4,
+          "contains_all_numbers": false,
+          "llm_judgment": {
+            "is_correct": false,
+            "confidence": 0.8,
+            "reasoning": "The generated answer does not provide the specific numerical value of approximately 3.27 unique object categories per image, which is the key fact from the ground truth. Instead, it states that the information is not available, which is incorrect as the ground truth provides a clear answer. While it discusses other aspects of the dataset, it fails to address the main question directly.",
+            "missing_facts": [
+              "The average number of unique object categories per image in iSAID is approximately 3.27."
+            ],
+            "incorrect_facts": []
+          }
+        }
+      }
+    },
+    {
+      "id": 7,
+      "question": "What are the global dataset statistics of OpenEarthMap?",
+      "ground_truth": "OpenEarthMap contains around 2.2 million labeled segments over 5,000 images across 97 regions in 44 countries and 6 continents.",
+      "category": "dataset_facts_oem",
+      "source": "openearthmap.pdf",
+      "baseline": {
+        "answer": "As of my last knowledge update, OpenEarthMap is a collaborative project focused on creating an open-source, global dataset of earth observation and remote sensing data. The exact statistics regarding the dataset can vary as it is continually updated and expanded by contributors. However, as of 2023, the dataset includes:\n\n- **Over 1.5 million** geospatial datasets contributed by users.\n- **Coverage of over 100 countries** worldwide.\n- Data primarily related to land use, land cover, and environmental changes.\n- Inclusion of multiple data sources such as satellite imagery, aerial photographs, and ground-based observations.\n\nFor the most current statistics, it is advisable to check the official OpenEarthMap website or their latest publications, as these numbers can change frequently with ongoing contributions and enhancements to the dataset.",
+        "response_time": 4.17716383934021,
+        "answer_length": 850,
+        "accuracy": {
+          "numbers_in_truth": 5,
+          "numbers_in_answer": 3,
+          "correct_numbers": 0,
+          "number_precision": 0.0,
+          "number_recall": 0.0,
+          "number_f1": 0,
+          "term_overlap": 0.15789473684210525,
+          "contains_all_numbers": false,
+          "llm_judgment": {
+            "is_correct": false,
+            "confidence": 0.7,
+            "reasoning": "The generated answer provides different numerical values and statistics compared to the ground truth. It states 'over 1.5 million' geospatial datasets and 'coverage of over 100 countries', which do not align with the ground truth of 'around 2.2 million labeled segments' and '44 countries'. While it offers additional context about the dataset, the key numerical values and specific facts are incorrect.",
+            "missing_facts": [
+              "2.2 million labeled segments",
+              "5,000 images",
+              "97 regions",
+              "44 countries",
+              "6 continents"
+            ],
+            "incorrect_facts": [
+              "over 1.5 million geospatial datasets",
+              "coverage of over 100 countries"
+            ]
+          }
+        }
+      },
+      "rag": {
+        "answer": "The OpenEarthMap dataset has global coverage statistics that include 97 regions from 44 countries across 6 continents. This diversity is indicative of the dataset's extensive geographical representation. The dataset is designed with finely detailed annotations that enhance the generalization of the feature space, making it suitable for various applications in land cover mapping and semantic segmentation.",
+        "response_time": 2.668706178665161,
+        "answer_length": 407,
+        "num_sources": 3,
+        "sources": [
+          {
+            "source": "openearthmap.pdf",
+            "page": 7,
+            "content_preview": "land cover mapping. The diversity of the dataset is shown\nin the coverage of 97 regions from 44 countries across\n6 continents, while its finely detailed annotations are re-\nflected in the generalizati..."
+          },
+          {
+            "source": "openearthmap.pdf",
+            "page": 7,
+            "content_preview": "land cover mapping. The diversity of the dataset is shown\nin the coverage of 97 regions from 44 countries across\n6 continents, while its finely detailed annotations are re-\nflected in the generalizati..."
+          },
+          {
+            "source": "openearthmap.pdf",
+            "page": 7,
+            "content_preview": "land cover mapping. The diversity of the dataset is shown\nin the coverage of 97 regions from 44 countries across\n6 continents, while its finely detailed annotations are re-\nflected in the generalizati..."
+          }
+        ],
+        "accuracy": {
+          "numbers_in_truth": 5,
+          "numbers_in_answer": 3,
+          "correct_numbers": 3,
+          "number_precision": 1.0,
+          "number_recall": 0.6,
+          "number_f1": 0.7499999999999999,
+          "term_overlap": 0.5263157894736842,
+          "contains_all_numbers": false,
+          "llm_judgment": {
+            "is_correct": false,
+            "confidence": 0.8,
+            "reasoning": "The generated answer correctly mentions the number of regions (97), countries (44), and continents (6), which aligns with the ground truth. However, it fails to include the key numerical value of 'around 2.2 million labeled segments' which is a significant aspect of the dataset's statistics. The additional context provided is relevant but does not compensate for the missing key numerical value.",
+            "missing_facts": [
+              "2.2 million labeled segments"
+            ],
+            "incorrect_facts": []
+          }
+        }
+      }
+    },
+    {
+      "id": 8,
+      "question": "What eight semantic land-cover categories are included in OpenEarthMap?",
+      "ground_truth": "bareland, rangeland, developed space, road, tree, water, agriculture land, and building.",
+      "category": "dataset_facts_oem",
+      "source": "openearthmap.pdf",
+      "baseline": {
+        "answer": "OpenEarthMap includes the following eight semantic land-cover categories:\n\n1. Water\n2. Forest\n3. Grassland\n4. Cropland\n5. Wetland\n6. Urban\n7. Barren land\n8. Snow and ice\n\nThese categories are used to classify and analyze land cover in various remote sensing applications.",
+        "response_time": 2.2190988063812256,
+        "answer_length": 271,
+        "accuracy": {
+          "numbers_in_truth": 0,
+          "numbers_in_answer": 8,
+          "correct_numbers": 0,
+          "number_precision": 0,
+          "number_recall": 0,
+          "number_f1": 0,
+          "term_overlap": 0.09090909090909091,
+          "contains_all_numbers": true,
+          "llm_judgment": {
+            "is_correct": false,
+            "confidence": 0.9,
+            "reasoning": "The generated answer lists eight land-cover categories, but they do not match the categories provided in the ground truth answer. Key categories such as 'bareland', 'rangeland', 'developed space', 'road', and 'building' are missing, while categories like 'forest', 'grassland', and 'urban' are included instead, which are not part of the ground truth.",
+            "missing_facts": [
+              "bareland",
+              "rangeland",
+              "developed space",
+              "road",
+              "building"
+            ],
+            "incorrect_facts": [
+              "forest",
+              "grassland",
+              "cropland",
+              "wetland",
+              "urban",
+              "barren land",
+              "snow and ice"
+            ]
+          }
+        }
+      },
+      "rag": {
+        "answer": "The provided excerpts from the research papers do not specify the eight semantic land-cover categories included in OpenEarthMap. The information focuses on the dataset's characteristics, such as the number of images, regions covered, and the approach to labeling, but it does not detail the specific land-cover classes. Therefore, I cannot provide the categories based on the given context.",
+        "response_time": 2.7065117359161377,
+        "answer_length": 390,
+        "num_sources": 3,
+        "sources": [
+          {
+            "source": "openearthmap.pdf",
+            "page": 1,
+            "content_preview": "ity (see Table 1). OpenEarthMap consists of 8-class land\ncover labels at a 0.25–0.5m GSD of 5000 images, cover-\ning 97 regions from 44 countries across 6 continents. We\nadopted RGB images of some exis..."
+          },
+          {
+            "source": "openearthmap.pdf",
+            "page": 1,
+            "content_preview": "ity (see Table 1). OpenEarthMap consists of 8-class land\ncover labels at a 0.25–0.5m GSD of 5000 images, cover-\ning 97 regions from 44 countries across 6 continents. We\nadopted RGB images of some exis..."
+          },
+          {
+            "source": "openearthmap.pdf",
+            "page": 1,
+            "content_preview": "ity (see Table 1). OpenEarthMap consists of 8-class land\ncover labels at a 0.25–0.5m GSD of 5000 images, cover-\ning 97 regions from 44 countries across 6 continents. We\nadopted RGB images of some exis..."
+          }
+        ],
+        "accuracy": {
+          "numbers_in_truth": 0,
+          "numbers_in_answer": 0,
+          "correct_numbers": 0,
+          "number_precision": 0,
+          "number_recall": 0,
+          "number_f1": 0,
+          "term_overlap": 0.09090909090909091,
+          "contains_all_numbers": true,
+          "llm_judgment": {
+            "is_correct": false,
+            "confidence": 0.9,
+            "reasoning": "The generated answer does not provide the eight semantic land-cover categories included in OpenEarthMap, which are explicitly listed in the ground truth answer. Instead, it states that the information is not specified, which is incorrect as the ground truth provides a clear list of categories.",
+            "missing_facts": [
+              "bareland",
+              "rangeland",
+              "developed space",
+              "road",
+              "tree",
+              "water",
+              "agriculture land",
+              "building"
+            ],
+            "incorrect_facts": []
+          }
+        }
+      }
+    },
+    {
+      "id": 9,
+      "question": "Which land-cover class has the largest number of labeled pixels in OpenEarthMap?",
+      "ground_truth": "Rangeland has the highest labeled pixel count with approximately 1,130 million pixels.",
+      "category": "dataset_facts_oem",
+      "source": "openearthmap.pdf",
+      "baseline": {
+        "answer": "In OpenEarthMap, the land-cover class with the largest number of labeled pixels is \"Water.\" It typically contains millions of labeled pixels, often exceeding 100 million, depending on the specific dataset version and the area covered. This class is followed by classes such as \"Urban\" and \"Agriculture,\" but \"Water\" consistently has the highest pixel count across various datasets. For precise numbers, it's recommended to refer to the latest dataset statistics directly from OpenEarthMap's official sources or documentation.",
+        "response_time": 2.3635880947113037,
+        "answer_length": 525,
+        "accuracy": {
+          "numbers_in_truth": 1,
+          "numbers_in_answer": 1,
+          "correct_numbers": 0,
+          "number_precision": 0.0,
+          "number_recall": 0.0,
+          "number_f1": 0,
+          "term_overlap": 0.5833333333333334,
+          "contains_all_numbers": false,
+          "llm_judgment": {
+            "is_correct": false,
+            "confidence": 0.9,
+            "reasoning": "The generated answer incorrectly states that 'Water' has the largest number of labeled pixels in OpenEarthMap, while the ground truth specifies that 'Rangeland' has the highest count with approximately 1,130 million pixels. The generated answer does not provide accurate numerical values or the correct land-cover class.",
+            "missing_facts": [
+              "Rangeland has the highest labeled pixel count",
+              "Approximately 1,130 million pixels for Rangeland"
+            ],
+            "incorrect_facts": [
+              "Water has the largest number of labeled pixels",
+              "Water typically contains millions of labeled pixels, often exceeding 100 million"
+            ]
+          }
+        }
+      },
+      "rag": {
+        "answer": "The land-cover class with the largest number of labeled pixels in OpenEarthMap is Rangeland, which has a total of 1,130 million pixels. This is noted in the provided data within the context, specifically in the pixel count for each class, where Rangeland is shown to account for 22.9% of the total labeled pixels. In comparison, other classes such as Tree (996 million pixels) and Developed space (798 million pixels) have fewer labeled pixels.",
+        "response_time": 3.3234126567840576,
+        "answer_length": 444,
+        "num_sources": 3,
+        "sources": [
+          {
+            "source": "openearthmap.pdf",
+            "page": 2,
+            "content_preview": "than the 1.5 hours of Cityscapes [13], which illustrates the\ndifficulty of labelling remote sensing images. All the label-\ning was done manually. For the labeling of images of the ex-\nisting benchmark..."
+          },
+          {
+            "source": "openearthmap.pdf",
+            "page": 2,
+            "content_preview": "than the 1.5 hours of Cityscapes [13], which illustrates the\ndifficulty of labelling remote sensing images. All the label-\ning was done manually. For the labeling of images of the ex-\nisting benchmark..."
+          },
+          {
+            "source": "openearthmap.pdf",
+            "page": 2,
+            "content_preview": "than the 1.5 hours of Cityscapes [13], which illustrates the\ndifficulty of labelling remote sensing images. All the label-\ning was done manually. For the labeling of images of the ex-\nisting benchmark..."
+          }
+        ],
+        "accuracy": {
+          "numbers_in_truth": 1,
+          "numbers_in_answer": 4,
+          "correct_numbers": 1,
+          "number_precision": 0.25,
+          "number_recall": 1.0,
+          "number_f1": 0.4,
+          "term_overlap": 0.8333333333333334,
+          "contains_all_numbers": true,
+          "llm_judgment": {
+            "is_correct": true,
+            "confidence": 0.95,
+            "reasoning": "The generated answer accurately identifies Rangeland as the land-cover class with the largest number of labeled pixels, matching the ground truth of approximately 1,130 million pixels. It also provides additional context about the percentage of total labeled pixels and compares it to other classes, which is relevant and consistent with the ground truth.",
+            "missing_facts": [],
+            "incorrect_facts": []
+          }
+        }
+      }
+    },
+    {
+      "id": 10,
+      "question": "How many annotators worked on OpenEarthMap and how long did labeling take compared to Cityscapes?",
+      "ground_truth": "Eight annotators and eight quality checkers worked on the dataset. Each image required around 2.5 hours of annotation, longer than Cityscapes' average of ~1.5 hours.",
+      "category": "dataset_facts_oem",
+      "source": "openearthmap.pdf",
+      "baseline": {
+        "answer": "OpenEarthMap employed a total of **120 annotators** for the labeling process. The labeling duration for OpenEarthMap was approximately **6 months**. In comparison, the Cityscapes dataset utilized around **20 annotators** and took about **3 months** to complete its labeling. This indicates that OpenEarthMap had a larger team and a longer timeline for annotation than Cityscapes.",
+        "response_time": 2.305347204208374,
+        "answer_length": 379,
+        "accuracy": {
+          "numbers_in_truth": 2,
+          "numbers_in_answer": 4,
+          "correct_numbers": 0,
+          "number_precision": 0.0,
+          "number_recall": 0.0,
+          "number_f1": 0,
+          "term_overlap": 0.2608695652173913,
+          "contains_all_numbers": false,
+          "llm_judgment": {
+            "is_correct": false,
+            "confidence": 0.9,
+            "reasoning": "The generated answer contains incorrect numerical values regarding the number of annotators and the duration of the labeling process for OpenEarthMap and Cityscapes. The ground truth states that there were eight annotators and eight quality checkers, while the generated answer claims there were 120 annotators. Additionally, the labeling duration for OpenEarthMap is stated as 2.5 hours per image, which is not addressed in the generated answer. The comparison with Cityscapes is also inaccurate, as it states 20 annotators and 3 months, whereas the ground truth indicates an average of 1.5 hours per image for Cityscapes.",
+            "missing_facts": [
+              "Number of annotators for OpenEarthMap is 8",
+              "Number of quality checkers for OpenEarthMap is 8",
+              "Labeling duration for OpenEarthMap is around 2.5 hours per image",
+              "Cityscapes' average labeling duration is ~1.5 hours per image"
+            ],
+            "incorrect_facts": [
+              "Number of annotators for OpenEarthMap is 120",
+              "Labeling duration for OpenEarthMap is approximately 6 months",
+              "Number of annotators for Cityscapes is around 20",
+              "Labeling duration for Cityscapes is about 3 months"
+            ]
+          }
+        }
+      },
+      "rag": {
+        "answer": "A total of 16 people were involved in the annotation process for OpenEarthMap, with 8 individuals annotating the images and the remaining 8 performing quality checks to identify errors. The labeling process took an average of 2.5 hours per image, which is significantly longer than the 1.5 hours spent on labeling in the Cityscapes dataset. This difference illustrates the greater difficulty associated with labeling remote sensing images compared to those in the Cityscapes dataset.",
+        "response_time": 4.016706228256226,
+        "answer_length": 483,
+        "num_sources": 3,
+        "sources": [
+          {
+            "source": "openearthmap.pdf",
+            "page": 2,
+            "content_preview": "jects (e.g., treeandbuilding ) are finely annotated compared\nto the ground objects (e.g., agriculture land ). As can be\nseen in the horizontal bar charts of 12 representative regions\nin Figure 3, the ..."
+          },
+          {
+            "source": "openearthmap.pdf",
+            "page": 2,
+            "content_preview": "jects (e.g., treeandbuilding ) are finely annotated compared\nto the ground objects (e.g., agriculture land ). As can be\nseen in the horizontal bar charts of 12 representative regions\nin Figure 3, the ..."
+          },
+          {
+            "source": "openearthmap.pdf",
+            "page": 2,
+            "content_preview": "jects (e.g., treeandbuilding ) are finely annotated compared\nto the ground objects (e.g., agriculture land ). As can be\nseen in the horizontal bar charts of 12 representative regions\nin Figure 3, the ..."
+          }
+        ],
+        "accuracy": {
+          "numbers_in_truth": 2,
+          "numbers_in_answer": 4,
+          "correct_numbers": 2,
+          "number_precision": 0.5,
+          "number_recall": 1.0,
+          "number_f1": 0.6666666666666666,
+          "term_overlap": 0.4782608695652174,
+          "contains_all_numbers": true,
+          "llm_judgment": {
+            "is_correct": true,
+            "confidence": 0.9,
+            "reasoning": "The generated answer accurately reflects the key numerical values regarding the number of annotators and quality checkers, stating 8 annotators and 8 quality checkers, which totals 16 people. It also correctly mentions the annotation time of 2.5 hours per image and compares it to Cityscapes' 1.5 hours, maintaining the factual accuracy of the ground truth. The additional context about the difficulty of labeling remote sensing images is relevant and enhances the answer.",
+            "missing_facts": [],
+            "incorrect_facts": []
+          }
+        }
+      }
+    },
+    {
+      "id": 11,
+      "question": "What is the inter-annotator agreement level in OpenEarthMap compared to Cityscapes?",
+      "ground_truth": "Annotators agree on about 78% of pixels in OpenEarthMap, compared to 96% in Cityscapes.",
+      "category": "dataset_facts_oem",
+      "source": "openearthmap.pdf",
+      "baseline": {
+        "answer": "OpenEarthMap reports an inter-annotator agreement level of 0.85 (Fleiss' kappa), indicating a high level of agreement among annotators for land-use classification. In contrast, the Cityscapes dataset shows a higher inter-annotator agreement level, with a kappa value of approximately 0.93, reflecting strong consensus among annotators in urban scene segmentation tasks. This suggests that while both datasets exhibit high agreement, Cityscapes demonstrates a more consistent annotation quality.",
+        "response_time": 2.7830722332000732,
+        "answer_length": 494,
+        "accuracy": {
+          "numbers_in_truth": 2,
+          "numbers_in_answer": 2,
+          "correct_numbers": 0,
+          "number_precision": 0.0,
+          "number_recall": 0.0,
+          "number_f1": 0,
+          "term_overlap": 0.23076923076923078,
+          "contains_all_numbers": false,
+          "llm_judgment": {
+            "is_correct": true,
+            "confidence": 0.9,
+            "reasoning": "The generated answer provides accurate inter-annotator agreement levels for both OpenEarthMap and Cityscapes, with the values of 0.85 and 0.93 being approximately equivalent to the ground truth percentages of 78% and 96%, respectively. The main facts and concepts regarding the agreement levels are present and consistent with the ground truth, even though the generated answer uses kappa values instead of percentages. The additional context about the nature of the datasets enhances the response.",
+            "missing_facts": [],
+            "incorrect_facts": []
+          }
+        }
+      },
+      "rag": {
+        "answer": "The provided excerpts do not contain any information about the inter-annotator agreement level in OpenEarthMap compared to Cityscapes. Therefore, I cannot answer the question based on the context given.",
+        "response_time": 2.3626208305358887,
+        "answer_length": 202,
+        "num_sources": 3,
+        "sources": [
+          {
+            "source": "openearthmap.pdf",
+            "page": 3,
+            "content_preview": "OpenSentinelMap [22] is featured in its comprehensive\ncoverage of the globe exploiting open data of Sentinel-2 and\nOpenStreetMap while DynamicEarthNet [48] is advanta-\ngeous at high-temporal resolutio..."
+          },
+          {
+            "source": "openearthmap.pdf",
+            "page": 3,
+            "content_preview": "OpenSentinelMap [22] is featured in its comprehensive\ncoverage of the globe exploiting open data of Sentinel-2 and\nOpenStreetMap while DynamicEarthNet [48] is advanta-\ngeous at high-temporal resolutio..."
+          },
+          {
+            "source": "openearthmap.pdf",
+            "page": 3,
+            "content_preview": "OpenSentinelMap [22] is featured in its comprehensive\ncoverage of the globe exploiting open data of Sentinel-2 and\nOpenStreetMap while DynamicEarthNet [48] is advanta-\ngeous at high-temporal resolutio..."
+          }
+        ],
+        "accuracy": {
+          "numbers_in_truth": 2,
+          "numbers_in_answer": 0,
+          "correct_numbers": 0,
+          "number_precision": 0,
+          "number_recall": 0.0,
+          "number_f1": 0,
+          "term_overlap": 0.46153846153846156,
+          "contains_all_numbers": false,
+          "llm_judgment": {
+            "is_correct": false,
+            "confidence": 0.9,
+            "reasoning": "The generated answer states that it cannot provide information about the inter-annotator agreement levels in OpenEarthMap and Cityscapes, which is incorrect. The ground truth provides specific numerical values for both datasets, which the generated answer fails to mention. Therefore, it does not address the question accurately.",
+            "missing_facts": [
+              "inter-annotator agreement level in OpenEarthMap is about 78%",
+              "inter-annotator agreement level in Cityscapes is about 96%"
+            ],
+            "incorrect_facts": []
+          }
+        }
+      }
+    },
+    {
+      "id": 12,
+      "question": "How is OpenEarthMap split into train, validation, and test subsets?",
+      "ground_truth": "The dataset is split in a 6:1:3 ratio: approximately 3000 train, 500 validation, and 1500 test images.",
+      "category": "dataset_facts_oem",
+      "source": "openearthmap.pdf",
+      "baseline": {
+        "answer": "OpenEarthMap typically splits its dataset into train, validation, and test subsets using a stratified sampling approach to ensure representativeness across different classes. The common split ratio often used is:\n\n- **Training set**: 70% of the total dataset\n- **Validation set**: 15% of the total dataset\n- **Test set**: 15% of the total dataset\n\nFor example, if OpenEarthMap contains 10,000 images, the subsets would be divided as follows:\n\n- **Training set**: 7,000 images\n- **Validation set**: 1,500 images\n- **Test set**: 1,500 images\n\nThese proportions may vary based on the specific requirements of the experiment or model training protocol. However, this 70-15-15 split is a common practice in machine learning tasks to ensure robust model evaluation.",
+        "response_time": 6.035627841949463,
+        "answer_length": 759,
+        "accuracy": {
+          "numbers_in_truth": 6,
+          "numbers_in_answer": 5,
+          "correct_numbers": 1,
+          "number_precision": 0.2,
+          "number_recall": 0.16666666666666666,
+          "number_f1": 0.1818181818181818,
+          "term_overlap": 0.5882352941176471,
+          "contains_all_numbers": false,
+          "llm_judgment": {
+            "is_correct": false,
+            "confidence": 0.9,
+            "reasoning": "The generated answer provides a different split ratio (70:15:15) compared to the ground truth (6:1:3). The numerical values for the subsets are also incorrect based on the ground truth, which specifies approximately 3000 train, 500 validation, and 1500 test images. While the generated answer discusses stratified sampling and provides a common practice in machine learning, it does not align with the specific details of the OpenEarthMap dataset as stated in the ground truth.",
+            "missing_facts": [
+              "specific split ratio of 6:1:3",
+              "exact numbers of approximately 3000 train, 500 validation, and 1500 test images"
+            ],
+            "incorrect_facts": [
+              "split ratio of 70:15:15",
+              "number of training images as 7000",
+              "number of validation images as 1500",
+              "number of test images as 1500"
+            ]
+          }
+        }
+      },
+      "rag": {
+        "answer": "The context provided does not contain specific information about how OpenEarthMap is split into training, validation, and test subsets. However, it does describe a general process for splitting a dataset into training and testing subsets based on machine learning guidelines. According to the excerpt, the dataset was divided into two subsets (training and testing) following the guidelines suggested by Xu and Goodacre (2018). This division is done to enhance the reliability of quality assessment by evaluating the subsets separately rather than the dataset as a whole. \n\nThe training set is used to train the model parameters, while the test set is employed to evaluate the networks' generalization ability. There is no mention of a validation subset in the provided context. Thus, the specifics of the splitting process for OpenEarthMap, including any validation set, remain unclear based on the information given.",
+        "response_time": 6.156195402145386,
+        "answer_length": 918,
+        "num_sources": 3,
+        "sources": [
+          {
+            "source": "1-s2.0-S2667393223000029-main.pdf",
+            "page": 2,
+            "content_preview": "dataset used in this work is generated through the geo-processing tools, \nlike geo-referencing, projection, clipping, translation, and rasterization \nusing the QGIS approach and Osmosis tool; {γ1, γ2,..."
+          },
+          {
+            "source": "1-s2.0-S2667393223000029-main.pdf",
+            "page": 2,
+            "content_preview": "dataset used in this work is generated through the geo-processing tools, \nlike geo-referencing, projection, clipping, translation, and rasterization \nusing the QGIS approach and Osmosis tool; {γ1, γ2,..."
+          },
+          {
+            "source": "1-s2.0-S2667393223000029-main.pdf",
+            "page": 2,
+            "content_preview": "dataset used in this work is generated through the geo-processing tools, \nlike geo-referencing, projection, clipping, translation, and rasterization \nusing the QGIS approach and Osmosis tool; {γ1, γ2,..."
+          }
+        ],
+        "accuracy": {
+          "numbers_in_truth": 6,
+          "numbers_in_answer": 1,
+          "correct_numbers": 0,
+          "number_precision": 0.0,
+          "number_recall": 0.0,
+          "number_f1": 0,
+          "term_overlap": 0.5294117647058824,
+          "contains_all_numbers": false,
+          "llm_judgment": {
+            "is_correct": false,
+            "confidence": 0.8,
+            "reasoning": "The generated answer does not provide the specific numerical values or the exact ratio of the dataset split as stated in the ground truth. It fails to mention the 6:1:3 ratio and the approximate number of images in each subset, which are key facts. While it discusses general principles of dataset splitting, it does not address the specifics of OpenEarthMap's dataset split.",
+            "missing_facts": [
+              "The dataset is split in a 6:1:3 ratio",
+              "Approximately 3000 train images",
+              "Approximately 500 validation images",
+              "Approximately 1500 test images"
+            ],
+            "incorrect_facts": []
+          }
+        }
+      }
+    },
+    {
+      "id": 13,
+      "question": "What metrics does Panoptic-DeepLab achieve on the Cityscapes test set?",
+      "ground_truth": "Panoptic-DeepLab achieves 84.2% mIoU, 39.0% AP, and 65.5% PQ.",
+      "category": "method_metrics_deeplab",
+      "source": "Cheng_Panoptic-DeepLab_A_Simple_Strong_and_Fast_Baseline_for_Bottom-Up_Panoptic_CVPR_2020_paper.pdf",
+      "baseline": {
+        "answer": "Panoptic-DeepLab achieves a mean Intersection over Union (mIoU) score of 61.3% and a panoptic quality (PQ) score of 54.6% on the Cityscapes test set. These metrics reflect its performance in both semantic segmentation and instance segmentation tasks.",
+        "response_time": 1.779902458190918,
+        "answer_length": 250,
+        "accuracy": {
+          "numbers_in_truth": 3,
+          "numbers_in_answer": 2,
+          "correct_numbers": 0,
+          "number_precision": 0.0,
+          "number_recall": 0.0,
+          "number_f1": 0,
+          "term_overlap": 0.3333333333333333,
+          "contains_all_numbers": false,
+          "llm_judgment": {
+            "is_correct": false,
+            "confidence": 0.9,
+            "reasoning": "The generated answer provides incorrect numerical values for the metrics achieved by Panoptic-DeepLab on the Cityscapes test set. The mIoU score of 61.3% and PQ score of 54.6% are significantly lower than the ground truth values of 84.2% mIoU and 65.5% PQ. While the concepts of mIoU and PQ are mentioned, the key numerical values are not accurate.",
+            "missing_facts": [],
+            "incorrect_facts": [
+              "mIoU score of 61.3%",
+              "PQ score of 54.6%"
+            ]
+          }
+        }
+      },
+      "rag": {
+        "answer": "Panoptic-DeepLab achieves the following metrics on the Cityscapes test set:\n\n- Mean Intersection over Union (mIoU): 84.2%\n- Average Precision (AP): 39.0%\n- Panoptic Quality (PQ): 65.5%\n\nAdditionally, it records a competitive performance with a PQ of 54.1% using a single model (equipped with MobileNetV3) on the same test set, demonstrating its effectiveness in panoptic segmentation (Cheng, 2020).",
+        "response_time": 3.1413044929504395,
+        "answer_length": 398,
+        "num_sources": 3,
+        "sources": [
+          {
+            "source": "Cheng_Panoptic-DeepLab_A_Simple_Strong_and_Fast_Baseline_for_Bottom-Up_Panoptic_CVPR_2020_paper.pdf",
+            "page": 0,
+            "content_preview": "class-agnostic, involving a simple instance center regres-\nsion. As a result, our single Panoptic-DeepLab simultane-\nously ranks ﬁrst at all three Cityscapes benchmarks, setting\nthe new state-of-art o..."
+          },
+          {
+            "source": "Cheng_Panoptic-DeepLab_A_Simple_Strong_and_Fast_Baseline_for_Bottom-Up_Panoptic_CVPR_2020_paper.pdf",
+            "page": 0,
+            "content_preview": "class-agnostic, involving a simple instance center regres-\nsion. As a result, our single Panoptic-DeepLab simultane-\nously ranks ﬁrst at all three Cityscapes benchmarks, setting\nthe new state-of-art o..."
+          },
+          {
+            "source": "Cheng_Panoptic-DeepLab_A_Simple_Strong_and_Fast_Baseline_for_Bottom-Up_Panoptic_CVPR_2020_paper.pdf",
+            "page": 0,
+            "content_preview": "class-agnostic, involving a simple instance center regres-\nsion. As a result, our single Panoptic-DeepLab simultane-\nously ranks ﬁrst at all three Cityscapes benchmarks, setting\nthe new state-of-art o..."
+          }
+        ],
+        "accuracy": {
+          "numbers_in_truth": 3,
+          "numbers_in_answer": 6,
+          "correct_numbers": 3,
+          "number_precision": 0.5,
+          "number_recall": 1.0,
+          "number_f1": 0.6666666666666666,
+          "term_overlap": 0.5555555555555556,
+          "contains_all_numbers": true,
+          "llm_judgment": {
+            "is_correct": true,
+            "confidence": 0.95,
+            "reasoning": "The generated answer accurately presents the key numerical values for mIoU, AP, and PQ, which match the ground truth. Additionally, it includes relevant context about the performance of a single model variant, which is consistent with the topic of Panoptic-DeepLab's effectiveness in panoptic segmentation. The extra detail does not contradict the ground truth and adds value to the answer.",
+            "missing_facts": [],
+            "incorrect_facts": []
+          }
+        }
+      }
+    },
+    {
+      "id": 14,
+      "question": "What are the three main outputs of Panoptic-DeepLab?",
+      "ground_truth": "Panoptic-DeepLab outputs semantic segmentation, instance center heatmaps, and pixel-center regression offsets, which generate class-agnostic instance masks.",
+      "category": "method_metrics_deeplab",
+      "source": "Cheng_Panoptic-DeepLab_A_Simple_Strong_and_Fast_Baseline_for_Bottom-Up_Panoptic_CVPR_2020_paper.pdf",
+      "baseline": {
+        "answer": "The three main outputs of Panoptic-DeepLab are:\n\n1. **Semantic Segmentation Map**: A map that assigns a class label to each pixel in the image, indicating the category of objects (e.g., person, car, tree) with a total of 20-80 classes depending on the dataset used (e.g., COCO has 80 classes).\n\n2. **Instance Segmentation Map**: This output provides pixel-wise segmentation for individual object instances within a class. It differentiates between different instances of the same class, allowing for unique identification of objects.\n\n3. **Panoptic Segmentation Output**: This combines the semantic and instance segmentation results into a single representation, where each pixel is classified as either an instance of an object or as part of the background. The Panoptic Quality (PQ) metric is often used to evaluate this output, measuring the quality of the segmentation as both a combination of instance and semantic accuracy. \n\nThese outputs collectively allow for a comprehensive understanding of the scene by differentiating between different types of objects and their instances.",
+        "response_time": 4.347118377685547,
+        "answer_length": 1086,
+        "accuracy": {
+          "numbers_in_truth": 0,
+          "numbers_in_answer": 5,
+          "correct_numbers": 0,
+          "number_precision": 0,
+          "number_recall": 0,
+          "number_f1": 0,
+          "term_overlap": 0.3333333333333333,
+          "contains_all_numbers": true,
+          "llm_judgment": {
+            "is_correct": false,
+            "confidence": 0.8,
+            "reasoning": "The generated answer includes outputs that are conceptually related to Panoptic-DeepLab, but it does not accurately reflect the specific outputs mentioned in the ground truth. The ground truth specifies 'instance center heatmaps' and 'pixel-center regression offsets' as outputs, which are not mentioned in the generated answer. Instead, the generated answer describes 'instance segmentation map' and 'panoptic segmentation output', which are not the same as the outputs listed in the ground truth.",
+            "missing_facts": [
+              "instance center heatmaps",
+              "pixel-center regression offsets"
+            ],
+            "incorrect_facts": []
+          }
+        }
+      },
+      "rag": {
+        "answer": "The provided context does not explicitly state the three main outputs of Panoptic-DeepLab. However, it discusses performance metrics related to the segmentation tasks, such as Panoptic Quality (PQ), speed, and M-Adds (multiply-adds). Specifically, the PQ values for validation and test datasets are listed, indicating the model's effectiveness in segmenting different classes. \n\nFor instance, Panoptic-DeepLab achieves a PQ of 54.1 on the validation set and 54.1 on the test set using the MNV3 backbone with an input size of 1025×2049. Additionally, it provides metrics related to computational efficiency, such as speed in milliseconds and M-Adds in billions, which reflect the model's processing time and computational complexity.\n\nAs such, while the specific outputs are not delineated, the relevant performance metrics include:\n\n1. Panoptic Quality (PQ) for validation and test datasets.\n2. Speed (measured in milliseconds).\n3. M-Adds (measured in billions).\n\nFor more precise details on the outputs, additional context from the research paper would be necessary.",
+        "response_time": 7.001328706741333,
+        "answer_length": 1067,
+        "num_sources": 3,
+        "sources": [
+          {
+            "source": "Cheng_Panoptic-DeepLab_A_Simple_Strong_and_Fast_Baseline_for_Bottom-Up_Panoptic_CVPR_2020_paper.pdf",
+            "page": 6,
+            "content_preview": "4.6. Discussion\nHerein, we list a few interesting aspects in the hope of\ninspiring future works on bottom-up panoptic segmentation.\nScale variation: Fig.4shows visualization of Panoptic-\nDeepLab. In p..."
+          },
+          {
+            "source": "Cheng_Panoptic-DeepLab_A_Simple_Strong_and_Fast_Baseline_for_Bottom-Up_Panoptic_CVPR_2020_paper.pdf",
+            "page": 6,
+            "content_preview": "4.6. Discussion\nHerein, we list a few interesting aspects in the hope of\ninspiring future works on bottom-up panoptic segmentation.\nScale variation: Fig.4shows visualization of Panoptic-\nDeepLab. In p..."
+          },
+          {
+            "source": "Cheng_Panoptic-DeepLab_A_Simple_Strong_and_Fast_Baseline_for_Bottom-Up_Panoptic_CVPR_2020_paper.pdf",
+            "page": 6,
+            "content_preview": "4.6. Discussion\nHerein, we list a few interesting aspects in the hope of\ninspiring future works on bottom-up panoptic segmentation.\nScale variation: Fig.4shows visualization of Panoptic-\nDeepLab. In p..."
+          }
+        ],
+        "accuracy": {
+          "numbers_in_truth": 0,
+          "numbers_in_answer": 6,
+          "correct_numbers": 0,
+          "number_precision": 0,
+          "number_recall": 0,
+          "number_f1": 0,
+          "term_overlap": 0.26666666666666666,
+          "contains_all_numbers": true,
+          "llm_judgment": {
+            "is_correct": false,
+            "confidence": 0.8,
+            "reasoning": "The generated answer does not provide the three main outputs of Panoptic-DeepLab as specified in the ground truth answer. Instead, it focuses on performance metrics, which are not the same as the outputs. While the performance metrics mentioned are relevant, they do not address the question asked.",
+            "missing_facts": [
+              "semantic segmentation",
+              "instance center heatmaps",
+              "pixel-center regression offsets"
+            ],
+            "incorrect_facts": []
+          }
+        }
+      }
+    },
+    {
+      "id": 15,
+      "question": "With MobileNetV3, what speed and PQ does Panoptic-DeepLab achieve?",
+      "ground_truth": "It reaches approximately 54.1% PQ and runs at roughly 15.8 FPS at 1025×2049 resolution.",
+      "category": "method_metrics_deeplab",
+      "source": "Cheng_Panoptic-DeepLab_A_Simple_Strong_and_Fast_Baseline_for_Bottom-Up_Panoptic_CVPR_2020_paper.pdf",
+      "baseline": {
+        "answer": "Panoptic-DeepLab with MobileNetV3 achieves a speed of approximately 30 frames per second (FPS) on a standard GPU while maintaining a Panoptic Quality (PQ) score of around 57.1 on the COCO dataset. These results illustrate the model's balance between efficiency and performance in panoptic segmentation tasks.",
+        "response_time": 2.050875663757324,
+        "answer_length": 308,
+        "accuracy": {
+          "numbers_in_truth": 4,
+          "numbers_in_answer": 3,
+          "correct_numbers": 0,
+          "number_precision": 0.0,
+          "number_recall": 0.0,
+          "number_f1": 0,
+          "term_overlap": 0.15384615384615385,
+          "contains_all_numbers": false,
+          "llm_judgment": {
+            "is_correct": false,
+            "confidence": 0.9,
+            "reasoning": "The generated answer contains incorrect numerical values for both the speed (30 FPS vs. 15.8 FPS) and the PQ score (57.1% vs. 54.1%). While it does mention relevant concepts such as MobileNetV3 and Panoptic-DeepLab, the key numerical values do not align with the ground truth, which is critical for factual accuracy.",
+            "missing_facts": [],
+            "incorrect_facts": [
+              "Speed is 30 FPS instead of 15.8 FPS",
+              "PQ score is 57.1% instead of 54.1%"
+            ]
+          }
+        }
+      },
+      "rag": {
+        "answer": "The provided excerpts do not contain specific numerical values for speed (inference time) and Panoptic Quality (PQ) achieved by the Panoptic-DeepLab model using MobileNetV3 (MNV3). While it is mentioned that \"channels in the last block of MNV3 are reduced by a factor of 2,\" and that Panoptic-DeepLab variants, including MNV3, achieve a better speed/accuracy trade-off, the actual performance metrics (inference time and PQ percentage) are not detailed in the excerpts.\n\nTherefore, based on the information given, I cannot provide the specific speed and PQ metrics for Panoptic-DeepLab with MobileNetV3.",
+        "response_time": 4.785910606384277,
+        "answer_length": 603,
+        "num_sources": 3,
+        "sources": [
+          {
+            "source": "Cheng_Panoptic-DeepLab_A_Simple_Strong_and_Fast_Baseline_for_Bottom-Up_Panoptic_CVPR_2020_paper.pdf",
+            "page": 6,
+            "content_preview": "channels in last block of MNV3 are reduced by a factor of 2 [ 27].\n0 50 100 150 200 250 300 350 400 450 50050556065\ninference time (ms)PQ (%)Panoptic-DeepLab (X-71)\nPanoptic-DeepLab (R-50)\nPanoptic-De..."
+          },
+          {
+            "source": "Cheng_Panoptic-DeepLab_A_Simple_Strong_and_Fast_Baseline_for_Bottom-Up_Panoptic_CVPR_2020_paper.pdf",
+            "page": 6,
+            "content_preview": "channels in last block of MNV3 are reduced by a factor of 2 [ 27].\n0 50 100 150 200 250 300 350 400 450 50050556065\ninference time (ms)PQ (%)Panoptic-DeepLab (X-71)\nPanoptic-DeepLab (R-50)\nPanoptic-De..."
+          },
+          {
+            "source": "Cheng_Panoptic-DeepLab_A_Simple_Strong_and_Fast_Baseline_for_Bottom-Up_Panoptic_CVPR_2020_paper.pdf",
+            "page": 6,
+            "content_preview": "channels in last block of MNV3 are reduced by a factor of 2 [ 27].\n0 50 100 150 200 250 300 350 400 450 50050556065\ninference time (ms)PQ (%)Panoptic-DeepLab (X-71)\nPanoptic-DeepLab (R-50)\nPanoptic-De..."
+          }
+        ],
+        "accuracy": {
+          "numbers_in_truth": 4,
+          "numbers_in_answer": 2,
+          "correct_numbers": 0,
+          "number_precision": 0.0,
+          "number_recall": 0.0,
+          "number_f1": 0,
+          "term_overlap": 0.23076923076923078,
+          "contains_all_numbers": false,
+          "llm_judgment": {
+            "is_correct": false,
+            "confidence": 0.8,
+            "reasoning": "The generated answer does not provide the specific numerical values for speed (15.8 FPS) and Panoptic Quality (54.1% PQ) as stated in the ground truth. While it correctly notes the absence of these metrics in the provided excerpts, it fails to acknowledge the actual values from the ground truth, which are critical to answering the question.",
+            "missing_facts": [
+              "54.1% PQ",
+              "15.8 FPS"
+            ],
+            "incorrect_facts": []
+          }
+        }
+      }
+    },
+    {
+      "id": 16,
+      "question": "What major innovations does Panoptic SegFormer introduce?",
+      "ground_truth": "It introduces deep supervision in the mask decoder, query decoupling for things vs stuff, and improved post-processing based on joint score reasoning.",
+      "category": "method_metrics_segformer",
+      "source": "Li_Panoptic_SegFormer_Delving_Deeper_Into_Panoptic_Segmentation_With_Transformers_CVPR_2022_paper.pdf",
+      "baseline": {
+        "answer": "Panoptic SegFormer introduces several major innovations in the field of panoptic segmentation:\n\n1. **Unified Architecture**: It combines semantic segmentation and instance segmentation into a single framework, allowing it to process images more efficiently.\n\n2. **Transformer-Based Backbone**: SegFormer utilizes a hierarchical transformer architecture, which enhances its ability to capture long-range dependencies and contextual information in images.\n\n3. **Efficient Design**: The model achieves a significant reduction in computational complexity, with a reported parameter count of approximately **13 million**, making it lighter compared to previous models while maintaining performance.\n\n4. **Scalability**: It shows scalability across various datasets and tasks, performing well on benchmarks such as COCO and Cityscapes with state-of-the-art results, including **51.6% mIoU** on COCO and **66.7% mIoU** on Cityscapes.\n\n5. **Multi-Scale Feature Aggregation**: The architecture employs a multi-scale feature aggregation strategy that improves segmentation accuracy across different object sizes.\n\nThese innovations make Panoptic SegFormer a powerful tool for real-time and efficient panoptic segmentation tasks in various applications.",
+        "response_time": 4.775633335113525,
+        "answer_length": 1242,
+        "accuracy": {
+          "numbers_in_truth": 0,
+          "numbers_in_answer": 8,
+          "correct_numbers": 0,
+          "number_precision": 0,
+          "number_recall": 0,
+          "number_f1": 0,
+          "term_overlap": 0.3181818181818182,
+          "contains_all_numbers": true,
+          "llm_judgment": {
+            "is_correct": false,
+            "confidence": 0.7,
+            "reasoning": "The generated answer provides several innovations related to Panoptic SegFormer, but it does not mention the specific innovations highlighted in the ground truth answer, such as deep supervision in the mask decoder, query decoupling for things vs stuff, and improved post-processing based on joint score reasoning. While the generated answer includes relevant concepts and details about the model's architecture and performance, it lacks the key innovations that are central to the ground truth.",
+            "missing_facts": [
+              "Deep supervision in the mask decoder",
+              "Query decoupling for things vs stuff",
+              "Improved post-processing based on joint score reasoning"
+            ],
+            "incorrect_facts": []
+          }
+        }
+      },
+      "rag": {
+        "answer": "Panoptic SegFormer introduces several major innovations in the field of panoptic segmentation, specifically utilizing transformers. The key components of this framework include:\n\n1. **Efficient Deeply-Supervised Mask Decoder**: This component enhances the segmentation process by providing more effective supervision throughout the decoding stage, improving the quality of the generated masks.\n\n2. **Query Decoupling Strategy**: This innovative method allows for a more flexible approach to handling queries during the segmentation process, which can lead to better differentiation between instances.\n\n3. **Improved Post-Processing Method**: This method refines the output of the segmentation, ensuring more accurate delineation of objects and enhancing overall performance.\n\nAdditionally, Panoptic SegFormer employs **Deformable DETR** to efficiently process multi-scale features, which is highlighted as a faster and more efficient version of the original DETR (Detection Transformer). This combination of components aims to advance panoptic segmentation by integrating the strengths of transformer architectures.",
+        "response_time": 5.496307849884033,
+        "answer_length": 1115,
+        "num_sources": 3,
+        "sources": [
+          {
+            "source": "Li_Panoptic_SegFormer_Delving_Deeper_Into_Panoptic_Segmentation_With_Transformers_CVPR_2022_paper.pdf",
+            "page": 0,
+            "content_preview": "Panoptic SegFormer: Delving Deeper into Panoptic Segmentation with\nTransformers\nZhiqi Li1, Wenhai Wang2, Enze Xie3, Zhiding Yu4,\nAnima Anandkumar4,5, Jose M. Alvarez4, Ping Luo3, Tong Lu1\n1Nanjing Uni..."
+          },
+          {
+            "source": "Li_Panoptic_SegFormer_Delving_Deeper_Into_Panoptic_Segmentation_With_Transformers_CVPR_2022_paper.pdf",
+            "page": 0,
+            "content_preview": "Panoptic SegFormer: Delving Deeper into Panoptic Segmentation with\nTransformers\nZhiqi Li1, Wenhai Wang2, Enze Xie3, Zhiding Yu4,\nAnima Anandkumar4,5, Jose M. Alvarez4, Ping Luo3, Tong Lu1\n1Nanjing Uni..."
+          },
+          {
+            "source": "Li_Panoptic_SegFormer_Delving_Deeper_Into_Panoptic_Segmentation_With_Transformers_CVPR_2022_paper.pdf",
+            "page": 0,
+            "content_preview": "Panoptic SegFormer: Delving Deeper into Panoptic Segmentation with\nTransformers\nZhiqi Li1, Wenhai Wang2, Enze Xie3, Zhiding Yu4,\nAnima Anandkumar4,5, Jose M. Alvarez4, Ping Luo3, Tong Lu1\n1Nanjing Uni..."
+          }
+        ],
+        "accuracy": {
+          "numbers_in_truth": 0,
+          "numbers_in_answer": 3,
+          "correct_numbers": 0,
+          "number_precision": 0,
+          "number_recall": 0,
+          "number_f1": 0,
+          "term_overlap": 0.4090909090909091,
+          "contains_all_numbers": true,
+          "llm_judgment": {
+            "is_correct": true,
+            "confidence": 0.9,
+            "reasoning": "The generated answer accurately captures the major innovations introduced by Panoptic SegFormer, including deep supervision in the mask decoder, query decoupling, and improved post-processing. While it adds some additional context about the use of Deformable DETR, this does not contradict the ground truth and is relevant to the discussion of innovations in panoptic segmentation.",
+            "missing_facts": [],
+            "incorrect_facts": []
+          }
+        }
+      }
+    },
+    {
+      "id": 17,
+      "question": "What PQ does Panoptic SegFormer achieve with ResNet-50 on COCO val?",
+      "ground_truth": "It achieves 49.6% PQ, outperforming DETR by ~6.2 PQ and MaskFormer by ~3.1 PQ.",
+      "category": "method_metrics_segformer",
+      "source": "Li_Panoptic_SegFormer_Delving_Deeper_Into_Panoptic_Segmentation_With_Transformers_CVPR_2022_paper.pdf",
+      "baseline": {
+        "answer": "Panoptic SegFormer achieves a Panoptic Quality (PQ) score of 43.6% with a ResNet-50 backbone on the COCO validation set.",
+        "response_time": 1.4418461322784424,
+        "answer_length": 120,
+        "accuracy": {
+          "numbers_in_truth": 3,
+          "numbers_in_answer": 2,
+          "correct_numbers": 0,
+          "number_precision": 0.0,
+          "number_recall": 0.0,
+          "number_f1": 0,
+          "term_overlap": 0.07692307692307693,
+          "contains_all_numbers": false,
+          "llm_judgment": {
+            "is_correct": false,
+            "confidence": 0.9,
+            "reasoning": "The generated answer states that Panoptic SegFormer achieves a PQ score of 43.6%, which is factually incorrect compared to the ground truth answer that states it achieves 49.6%. The main facts and concepts are present, but the key numerical value is incorrect.",
+            "missing_facts": [],
+            "incorrect_facts": [
+              "Panoptic SegFormer achieves a PQ score of 43.6%"
+            ]
+          }
+        }
+      },
+      "rag": {
+        "answer": "The Panoptic SegFormer achieves a Panoptic Quality (PQ) of 36.4% with the ResNet-50 backbone on the COCO test-dev set, as indicated in Table 2 of the provided context.",
+        "response_time": 2.9244565963745117,
+        "answer_length": 167,
+        "num_sources": 3,
+        "sources": [
+          {
+            "source": "Li_Panoptic_SegFormer_Delving_Deeper_Into_Panoptic_Segmentation_With_Transformers_CVPR_2022_paper.pdf",
+            "page": 5,
+            "content_preview": "Panoptic SegFormer PVTv2-B5†55.8 61.9 46.5 83.0 66.5\nTable 2. Experiments on COCO test-dev set.†notes that back-\nbones are pre-trained on ImageNet-22K.\nMethod Backbone PQ PQthPQstSQ RQ\nBGRNet [37] R50..."
+          },
+          {
+            "source": "Li_Panoptic_SegFormer_Delving_Deeper_Into_Panoptic_Segmentation_With_Transformers_CVPR_2022_paper.pdf",
+            "page": 5,
+            "content_preview": "Panoptic SegFormer PVTv2-B5†55.8 61.9 46.5 83.0 66.5\nTable 2. Experiments on COCO test-dev set.†notes that back-\nbones are pre-trained on ImageNet-22K.\nMethod Backbone PQ PQthPQstSQ RQ\nBGRNet [37] R50..."
+          },
+          {
+            "source": "Li_Panoptic_SegFormer_Delving_Deeper_Into_Panoptic_Segmentation_With_Transformers_CVPR_2022_paper.pdf",
+            "page": 5,
+            "content_preview": "Panoptic SegFormer PVTv2-B5†55.8 61.9 46.5 83.0 66.5\nTable 2. Experiments on COCO test-dev set.†notes that back-\nbones are pre-trained on ImageNet-22K.\nMethod Backbone PQ PQthPQstSQ RQ\nBGRNet [37] R50..."
+          }
+        ],
+        "accuracy": {
+          "numbers_in_truth": 3,
+          "numbers_in_answer": 3,
+          "correct_numbers": 0,
+          "number_precision": 0.0,
+          "number_recall": 0.0,
+          "number_f1": 0,
+          "term_overlap": 0.07692307692307693,
+          "contains_all_numbers": false,
+          "llm_judgment": {
+            "is_correct": false,
+            "confidence": 0.9,
+            "reasoning": "The generated answer states that Panoptic SegFormer achieves a PQ of 36.4%, which is factually incorrect compared to the ground truth answer that states it achieves 49.6% PQ. Additionally, the generated answer refers to the COCO test-dev set, while the ground truth refers to the COCO val set, which is a different dataset. Therefore, the key numerical value and the dataset context are both incorrect.",
+            "missing_facts": [],
+            "incorrect_facts": [
+              "Panoptic SegFormer achieves 36.4% PQ instead of 49.6%",
+              "Refers to COCO test-dev set instead of COCO val set"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": 18,
+      "question": "What is the best reported PQ for Panoptic SegFormer on COCO test-dev?",
+      "ground_truth": "Using Swin-L backbone, it achieves 56.2% PQ, outperforming previous competition-level methods.",
+      "category": "method_metrics_segformer",
+      "source": "Li_Panoptic_SegFormer_Delving_Deeper_Into_Panoptic_Segmentation_With_Transformers_CVPR_2022_paper.pdf",
+      "baseline": {
+        "answer": "The best reported Panoptic Quality (PQ) for Panoptic SegFormer on the COCO test-dev is 54.0.",
+        "response_time": 1.58467435836792,
+        "answer_length": 92,
+        "accuracy": {
+          "numbers_in_truth": 1,
+          "numbers_in_answer": 1,
+          "correct_numbers": 0,
+          "number_precision": 0.0,
+          "number_recall": 0.0,
+          "number_f1": 0,
+          "term_overlap": 0.0,
+          "contains_all_numbers": false,
+          "llm_judgment": {
+            "is_correct": false,
+            "confidence": 0.9,
+            "reasoning": "The generated answer states that the best reported PQ for Panoptic SegFormer is 54.0%, which is incorrect compared to the ground truth answer of 56.2%. The key numerical value is not accurate, and this is a significant discrepancy.",
+            "missing_facts": [],
+            "incorrect_facts": [
+              "The reported PQ value is 54.0%, which is incorrect; the correct value is 56.2%."
+            ]
+          }
+        }
+      },
+      "rag": {
+        "answer": "The best reported Panoptic Quality (PQ) for Panoptic SegFormer on the COCO test-dev set is 56.2%. This result was achieved using the Swin-L vision transformer backbone, as stated in the provided excerpts: \"Enhanced by vision transformer backbone Swin-L... Panoptic SegFormer attains a new record of 56.2% PQ on COCO test-dev...\"",
+        "response_time": 3.964662551879883,
+        "answer_length": 328,
+        "num_sources": 3,
+        "sources": [
+          {
+            "source": "Li_Panoptic_SegFormer_Delving_Deeper_Into_Panoptic_Segmentation_With_Transformers_CVPR_2022_paper.pdf",
+            "page": 5,
+            "content_preview": "Panoptic SegFormer PVTv2-B5†55.8 61.9 46.5 83.0 66.5\nTable 2. Experiments on COCO test-dev set.†notes that back-\nbones are pre-trained on ImageNet-22K.\nMethod Backbone PQ PQthPQstSQ RQ\nBGRNet [37] R50..."
+          },
+          {
+            "source": "Li_Panoptic_SegFormer_Delving_Deeper_Into_Panoptic_Segmentation_With_Transformers_CVPR_2022_paper.pdf",
+            "page": 5,
+            "content_preview": "Panoptic SegFormer PVTv2-B5†55.8 61.9 46.5 83.0 66.5\nTable 2. Experiments on COCO test-dev set.†notes that back-\nbones are pre-trained on ImageNet-22K.\nMethod Backbone PQ PQthPQstSQ RQ\nBGRNet [37] R50..."
+          },
+          {
+            "source": "Li_Panoptic_SegFormer_Delving_Deeper_Into_Panoptic_Segmentation_With_Transformers_CVPR_2022_paper.pdf",
+            "page": 5,
+            "content_preview": "Panoptic SegFormer PVTv2-B5†55.8 61.9 46.5 83.0 66.5\nTable 2. Experiments on COCO test-dev set.†notes that back-\nbones are pre-trained on ImageNet-22K.\nMethod Backbone PQ PQthPQstSQ RQ\nBGRNet [37] R50..."
+          }
+        ],
+        "accuracy": {
+          "numbers_in_truth": 1,
+          "numbers_in_answer": 1,
+          "correct_numbers": 1,
+          "number_precision": 1.0,
+          "number_recall": 1.0,
+          "number_f1": 1.0,
+          "term_overlap": 0.36363636363636365,
+          "contains_all_numbers": true,
+          "llm_judgment": {
+            "is_correct": true,
+            "confidence": 0.95,
+            "reasoning": "The generated answer accurately states the best reported Panoptic Quality (PQ) for Panoptic SegFormer on the COCO test-dev set as 56.2%, which matches the ground truth. It also correctly attributes this result to the Swin-L backbone and provides additional context about the achievement, which is consistent with the ground truth information.",
+            "missing_facts": [],
+            "incorrect_facts": []
+          }
+        }
+      }
+    },
+    {
+      "id": 19,
+      "question": "Under a 1× training schedule, how does Panoptic SegFormer compare to MaskFormer?",
+      "ground_truth": "Panoptic SegFormer achieves 48.0% PQ in 12 epochs, surpassing MaskFormer even after 300 epochs.",
+      "category": "method_metrics_segformer",
+      "source": "Li_Panoptic_SegFormer_Delving_Deeper_Into_Panoptic_Segmentation_With_Transformers_CVPR_2022_paper.pdf",
+      "baseline": {
+        "answer": "Under a 1× training schedule, Panoptic SegFormer demonstrates superior performance compared to MaskFormer in several key metrics. Specifically, on the COCO dataset, Panoptic SegFormer achieves a panoptic quality (PQ) score of approximately **50.2%**, while MaskFormer records a PQ score of around **44.8%**. This indicates that Panoptic SegFormer offers an improvement of about **5.4 percentage points** in panoptic segmentation tasks. Additionally, Panoptic SegFormer tends to be more efficient in terms of model size and inference speed, making it a more effective choice for real-time applications.",
+        "response_time": 3.4620840549468994,
+        "answer_length": 601,
+        "accuracy": {
+          "numbers_in_truth": 3,
+          "numbers_in_answer": 4,
+          "correct_numbers": 0,
+          "number_precision": 0.0,
+          "number_recall": 0.0,
+          "number_f1": 0,
+          "term_overlap": 0.42857142857142855,
+          "contains_all_numbers": false,
+          "llm_judgment": {
+            "is_correct": false,
+            "confidence": 0.8,
+            "reasoning": "The generated answer provides incorrect numerical values for the PQ scores of Panoptic SegFormer and MaskFormer. The ground truth states that Panoptic SegFormer achieves 48.0% PQ, while the generated answer claims it achieves approximately 50.2%. Additionally, the ground truth indicates that Panoptic SegFormer surpasses MaskFormer even after 300 epochs, but the generated answer does not mention this aspect of training duration, which is a key point of comparison.",
+            "missing_facts": [
+              "The specific PQ score of Panoptic SegFormer is 48.0%",
+              "The comparison includes the fact that Panoptic SegFormer surpasses MaskFormer even after 300 epochs"
+            ],
+            "incorrect_facts": [
+              "Panoptic SegFormer achieves a PQ score of approximately 50.2%",
+              "MaskFormer records a PQ score of around 44.8%"
+            ]
+          }
+        }
+      },
+      "rag": {
+        "answer": "The provided excerpts do not contain any information regarding Panoptic SegFormer or its comparison to MaskFormer under a 1× training schedule. Therefore, I cannot provide an answer based on the given context.",
+        "response_time": 2.4403886795043945,
+        "answer_length": 209,
+        "num_sources": 3,
+        "sources": [
+          {
+            "source": "Cheng_Masked-Attention_Mask_Transformer_for_Universal_Image_Segmentation_CVPR_2022_paper.pdf",
+            "page": 5,
+            "content_preview": "verted from panoptic segmentation annotation. This shows\nMask2Former’s universality: trained only with panoptic\nsegmentation annotations, it can be used for instance and\nsemantic segmentation.\nInstanc..."
+          },
+          {
+            "source": "Cheng_Masked-Attention_Mask_Transformer_for_Universal_Image_Segmentation_CVPR_2022_paper.pdf",
+            "page": 5,
+            "content_preview": "verted from panoptic segmentation annotation. This shows\nMask2Former’s universality: trained only with panoptic\nsegmentation annotations, it can be used for instance and\nsemantic segmentation.\nInstanc..."
+          },
+          {
+            "source": "Cheng_Masked-Attention_Mask_Transformer_for_Universal_Image_Segmentation_CVPR_2022_paper.pdf",
+            "page": 5,
+            "content_preview": "verted from panoptic segmentation annotation. This shows\nMask2Former’s universality: trained only with panoptic\nsegmentation annotations, it can be used for instance and\nsemantic segmentation.\nInstanc..."
+          }
+        ],
+        "accuracy": {
+          "numbers_in_truth": 3,
+          "numbers_in_answer": 1,
+          "correct_numbers": 0,
+          "number_precision": 0.0,
+          "number_recall": 0.0,
+          "number_f1": 0,
+          "term_overlap": 0.21428571428571427,
+          "contains_all_numbers": false,
+          "llm_judgment": {
+            "is_correct": false,
+            "confidence": 0.9,
+            "reasoning": "The generated answer does not address the question about the comparison between Panoptic SegFormer and MaskFormer. It states that there is no information available, which is incorrect since the ground truth provides specific performance metrics for both models. Therefore, it fails to provide any relevant facts or comparisons.",
+            "missing_facts": [
+              "Panoptic SegFormer achieves 48.0% PQ in 12 epochs",
+              "Panoptic SegFormer surpasses MaskFormer even after 300 epochs"
+            ],
+            "incorrect_facts": []
+          }
+        }
+      }
+    },
+    {
+      "id": 20,
+      "question": "What is masked attention in Mask2Former and why is it introduced?",
+      "ground_truth": "Masked attention limits cross-attention to relevant foreground regions instead of the whole feature map, improving convergence and stability over global attention.",
+      "category": "other_facts",
+      "source": "Cheng_Masked-Attention_Mask_Transformer_for_Universal_Image_Segmentation_CVPR_2022_paper.pdf",
+      "baseline": {
+        "answer": "Masked attention in Mask2Former is a mechanism introduced to enhance object segmentation tasks by focusing the model's attention on specific regions of interest in an image while ignoring irrelevant areas. This approach allows for more efficient processing and improved accuracy in segmenting objects.\n\nIn Mask2Former, masked attention is utilized to generate pixel-wise attention maps based on the predicted masks, effectively allowing the model to attend only to the pixels that are relevant to the current object instance. This contrasts with traditional attention mechanisms that consider all pixels, which can lead to a dilution of focus on important features.\n\nThe introduction of masked attention serves several purposes:\n\n1. **Efficiency**: By restricting the attention to masked regions, computational resources are used more effectively, as the model does not process irrelevant areas of the image.\n2. **Accuracy**: The focus on specific object instances helps the model learn more discriminative features, improving the quality of the segmentation masks produced.\n\nIn practice, Mask2Former has been shown to achieve state-of-the-art results on various benchmarks, such as the COCO dataset, with significant improvements in mean Average Precision (mAP) metrics for instance segmentation tasks. For instance, it has achieved mAP scores exceeding 40% on COCO validation, demonstrating the effectiveness of masked attention in improving segmentation performance.",
+        "response_time": 7.445665121078491,
+        "answer_length": 1469,
+        "accuracy": {
+          "numbers_in_truth": 0,
+          "numbers_in_answer": 3,
+          "correct_numbers": 0,
+          "number_precision": 0,
+          "number_recall": 0,
+          "number_f1": 0,
+          "term_overlap": 0.42857142857142855,
+          "contains_all_numbers": true,
+          "llm_judgment": {
+            "is_correct": true,
+            "confidence": 0.9,
+            "reasoning": "The generated answer accurately describes masked attention in Mask2Former, emphasizing its focus on relevant regions and its benefits in terms of efficiency and accuracy. It aligns well with the ground truth answer, which highlights the limitation of cross-attention to foreground regions and the improvement in convergence and stability. The additional context about performance on benchmarks like COCO adds value and is consistent with the overall concept.",
+            "missing_facts": [],
+            "incorrect_facts": []
+          }
+        }
+      },
+      "rag": {
+        "answer": "Masked attention in Mask2Former is a feature of the new Transformer decoder that is designed to enhance convergence and improve segmentation results. Though the specific mechanics of masked attention are not detailed in the excerpts provided, it is suggested that this approach contributes to the overall efficiency and accessibility of the Mask2Former architecture.\n\nThe introduction of masked attention is significant because it addresses the challenges associated with finding good representations for segments in image segmentation tasks. Traditional mask classification architectures face difficulties in segment representation, as seen with Mask R-CNN, which utilizes bounding boxes that limit applicability to semantic segmentation. By leveraging masked attention, Mask2Former aims to provide a more flexible and effective means of representing image segments, potentially drawing inspiration from DETR's methodology.\n\nIn summary, masked attention is a key component of Mask2Former that facilitates better model performance in universal image segmentation tasks by improving convergence and representation capabilities.",
+        "response_time": 4.399071455001831,
+        "answer_length": 1126,
+        "num_sources": 3,
+        "sources": [
+          {
+            "source": "Cheng_Masked-Attention_Mask_Transformer_for_Universal_Image_Segmentation_CVPR_2022_paper.pdf",
+            "page": 2,
+            "content_preview": "3. Masked-attention Mask Transformer\nWe now present Mask2Former. We ﬁrst review a meta\narchitecture for mask classiﬁcation that Mask2Former is\nbuilt upon. Then, we introduce our new Transformer de-\nco..."
+          },
+          {
+            "source": "Cheng_Masked-Attention_Mask_Transformer_for_Universal_Image_Segmentation_CVPR_2022_paper.pdf",
+            "page": 2,
+            "content_preview": "3. Masked-attention Mask Transformer\nWe now present Mask2Former. We ﬁrst review a meta\narchitecture for mask classiﬁcation that Mask2Former is\nbuilt upon. Then, we introduce our new Transformer de-\nco..."
+          },
+          {
+            "source": "Cheng_Masked-Attention_Mask_Transformer_for_Universal_Image_Segmentation_CVPR_2022_paper.pdf",
+            "page": 2,
+            "content_preview": "3. Masked-attention Mask Transformer\nWe now present Mask2Former. We ﬁrst review a meta\narchitecture for mask classiﬁcation that Mask2Former is\nbuilt upon. Then, we introduce our new Transformer de-\nco..."
+          }
+        ],
+        "accuracy": {
+          "numbers_in_truth": 0,
+          "numbers_in_answer": 1,
+          "correct_numbers": 0,
+          "number_precision": 0,
+          "number_recall": 0,
+          "number_f1": 0,
+          "term_overlap": 0.42857142857142855,
+          "contains_all_numbers": true,
+          "llm_judgment": {
+            "is_correct": true,
+            "confidence": 0.9,
+            "reasoning": "The generated answer accurately describes the purpose of masked attention in Mask2Former, emphasizing its role in improving convergence and segmentation results. It also correctly identifies the challenges faced by traditional architectures like Mask R-CNN and suggests that masked attention provides a more effective means of segment representation. While it does not explicitly mention limiting cross-attention to relevant foreground regions, the overall essence and implications of masked attention are captured.",
+            "missing_facts": [],
+            "incorrect_facts": []
+          }
+        }
+      }
+    }
+  ],
+  "summary": {
+    "baseline": {
+      "avg_response_time": 3.717685031890869,
+      "avg_number_recall": 0.025,
+      "avg_number_f1": 0.01818181818181818,
+      "perfect_answers": 5,
+      "llm_correct_answers": 3,
+      "llm_avg_confidence": 0.8625000000000002
+    },
+    "rag": {
+      "avg_response_time": 4.305846762657166,
+      "avg_number_recall": 0.24666666666666667,
+      "avg_number_f1": 0.19916666666666666,
+      "perfect_answers": 9,
+      "avg_sources_used": 3.0,
+      "llm_correct_answers": 7,
+      "llm_avg_confidence": 0.8675
+    }
+  }
+}

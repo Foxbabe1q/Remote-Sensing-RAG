@@ -1,0 +1,32 @@
+{
+  "metadata": {
+    "timestamp": "2025-12-04T07:00:00",
+    "num_questions": 20,
+    "llm_model": "gpt-4o-mini",
+    "embedding_model": "text-embedding-3-small",
+    "evaluation_type": "factual_precision",
+    "judge_model": "gpt-4o-mini",
+    "judge_temperature": 0.0
+  },
+  "summary": {
+    "baseline": {
+      "avg_response_time": 2.35,
+      "avg_number_recall": 0.42,
+      "avg_number_f1": 0.38,
+      "perfect_answers": 3,
+      "llm_correct_answers": 8,
+      "llm_avg_confidence": 0.65
+    },
+    "rag": {
+      "avg_response_time": 5.28,
+      "avg_number_recall": 0.95,
+      "avg_number_f1": 0.93,
+      "perfect_answers": 18,
+      "avg_sources_used": 3.0,
+      "llm_correct_answers": 19,
+      "llm_avg_confidence": 0.92
+    }
+  },
+  "note": "This is a sample result file demonstrating the evaluation framework. Run 'python analysis/evaluate_factual.py' for actual results."
+}
+

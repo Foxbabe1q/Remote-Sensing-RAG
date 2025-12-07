@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "question": "According to the iSAID paper, how many object instances, categories, and images does the dataset contain?",
+    "ground_truth": "iSAID contains approximately 655,451 object instances, 15 annotated categories, across 2,806 high-resolution aerial images.",
+    "source": "Zamir_iSAID_A_Large-scale_Dataset_for_Instance_Segmentation_in_Aerial_Images_CVPRW_2019_paper.pdf",
+    "category": "dataset_facts_isaid"
+  },
+  {
+    "id": 2,
+    "question": "What challenges specific to aerial imagery does the iSAID paper highlight compared to natural image datasets like COCO or Cityscapes?",
+    "ground_truth": "The paper highlights major challenges including arbitrary object orientation, high object density, large scale variation, and unusual aspect ratios, making aerial imagery more complex than natural scene datasets.",
+    "source": "Zamir_iSAID_A_Large-scale_Dataset_for_Instance_Segmentation_in_Aerial_Images_CVPRW_2019_paper.pdf",
+    "category": "dataset_facts_isaid"
+  },
+  {
+    "id": 3,
+    "question": "How does the iSAID dataset improve upon the original DOTA dataset in terms of annotations?",
+    "ground_truth": "iSAID reannotates DOTA from scratch and increases labeled instances from 188,282 to 655,451, and expands the available semantic categories to 15.",
+    "source": "Zamir_iSAID_A_Large-scale_Dataset_for_Instance_Segmentation_in_Aerial_Images_CVPRW_2019_paper.pdf",
+    "category": "dataset_facts_isaid"
+  },
+  {
+    "id": 4,
+    "question": "In iSAID, what is the maximum and average number of instances per image?",
+    "ground_truth": "Images can contain up to approximately 8,000 labeled instances, with an average of around 239 instances per image.",
+    "source": "Zamir_iSAID_A_Large-scale_Dataset_for_Instance_Segmentation_in_Aerial_Images_CVPRW_2019_paper.pdf",
+    "category": "dataset_facts_isaid"
+  },
+  {
+    "id": 5,
+    "question": "How long does it take to annotate one iSAID image and what is the total approximate annotation time?",
+    "ground_truth": "It takes around 3.5 hours to label one image, totaling approximately 409 human hours for all images (not including cross-checking).",
+    "source": "Zamir_iSAID_A_Large-scale_Dataset_for_Instance_Segmentation_in_Aerial_Images_CVPRW_2019_paper.pdf",
+    "category": "dataset_facts_isaid"
+  },
+  {
+    "id": 6,
+    "question": "On average, how many unique object categories appear per image in iSAID?",
+    "ground_truth": "Approximately 3.27 distinct object classes appear in each iSAID image.",
+    "source": "Zamir_iSAID_A_Large-scale_Dataset_for_Instance_Segmentation_in_Aerial_Images_CVPRW_2019_paper.pdf",
+    "category": "dataset_facts_isaid"
+  },
+  {
+    "id": 7,
+    "question": "What are the global dataset statistics of OpenEarthMap?",
+    "ground_truth": "OpenEarthMap contains around 2.2 million labeled segments over 5,000 images across 97 regions in 44 countries and 6 continents.",
+    "source": "openearthmap.pdf",
+    "category": "dataset_facts_oem"
+  },
+  {
+    "id": 8,
+    "question": "What eight semantic land-cover categories are included in OpenEarthMap?",
+    "ground_truth": "bareland, rangeland, developed space, road, tree, water, agriculture land, and building.",
+    "source": "openearthmap.pdf",
+    "category": "dataset_facts_oem"
+  },
+  {
+    "id": 9,
+    "question": "Which land-cover class has the largest number of labeled pixels in OpenEarthMap?",
+    "ground_truth": "Rangeland has the highest labeled pixel count with approximately 1,130 million pixels.",
+    "source": "openearthmap.pdf",
+    "category": "dataset_facts_oem"
+  },
+  {
+    "id": 10,
+    "question": "How many annotators worked on OpenEarthMap and how long did labeling take compared to Cityscapes?",
+    "ground_truth": "Eight annotators and eight quality checkers worked on the dataset. Each image required around 2.5 hours of annotation, longer than Cityscapes' average of ~1.5 hours.",
+    "source": "openearthmap.pdf",
+    "category": "dataset_facts_oem"
+  },
+  {
+    "id": 11,
+    "question": "What is the inter-annotator agreement level in OpenEarthMap compared to Cityscapes?",
+    "ground_truth": "Annotators agree on about 78% of pixels in OpenEarthMap, compared to 96% in Cityscapes.",
+    "source": "openearthmap.pdf",
+    "category": "dataset_facts_oem"
+  },
+  {
+    "id": 12,
+    "question": "How is OpenEarthMap split into train, validation, and test subsets?",
+    "ground_truth": "The dataset is split in a 6:1:3 ratio: approximately 3000 train, 500 validation, and 1500 test images.",
+    "source": "openearthmap.pdf",
+    "category": "dataset_facts_oem"
+  },
+  {
+    "id": 13,
+    "question": "What metrics does Panoptic-DeepLab achieve on the Cityscapes test set?",
+    "ground_truth": "Panoptic-DeepLab achieves 84.2% mIoU, 39.0% AP, and 65.5% PQ.",
+    "source": "Cheng_Panoptic-DeepLab_A_Simple_Strong_and_Fast_Baseline_for_Bottom-Up_Panoptic_CVPR_2020_paper.pdf",
+    "category": "method_metrics_deeplab"
+  },
+  {
+    "id": 14,
+    "question": "What are the three main outputs of Panoptic-DeepLab?",
+    "ground_truth": "Panoptic-DeepLab outputs semantic segmentation, instance center heatmaps, and pixel-center regression offsets, which generate class-agnostic instance masks.",
+    "source": "Cheng_Panoptic-DeepLab_A_Simple_Strong_and_Fast_Baseline_for_Bottom-Up_Panoptic_CVPR_2020_paper.pdf",
+    "category": "method_metrics_deeplab"
+  },
+  {
+    "id": 15,
+    "question": "With MobileNetV3, what speed and PQ does Panoptic-DeepLab achieve?",
+    "ground_truth": "It reaches approximately 54.1% PQ and runs at roughly 15.8 FPS at 1025×2049 resolution.",
+    "source": "Cheng_Panoptic-DeepLab_A_Simple_Strong_and_Fast_Baseline_for_Bottom-Up_Panoptic_CVPR_2020_paper.pdf",
+    "category": "method_metrics_deeplab"
+  },
+  {
+    "id": 16,
+    "question": "What major innovations does Panoptic SegFormer introduce?",
+    "ground_truth": "It introduces deep supervision in the mask decoder, query decoupling for things vs stuff, and improved post-processing based on joint score reasoning.",
+    "source": "Li_Panoptic_SegFormer_Delving_Deeper_Into_Panoptic_Segmentation_With_Transformers_CVPR_2022_paper.pdf",
+    "category": "method_metrics_segformer"
+  },
+  {
+    "id": 17,
+    "question": "What PQ does Panoptic SegFormer achieve with ResNet-50 on COCO val?",
+    "ground_truth": "It achieves 49.6% PQ, outperforming DETR by ~6.2 PQ and MaskFormer by ~3.1 PQ.",
+    "source": "Li_Panoptic_SegFormer_Delving_Deeper_Into_Panoptic_Segmentation_With_Transformers_CVPR_2022_paper.pdf",
+    "category": "method_metrics_segformer"
+  },
+  {
+    "id": 18,
+    "question": "What is the best reported PQ for Panoptic SegFormer on COCO test-dev?",
+    "ground_truth": "Using Swin-L backbone, it achieves 56.2% PQ, outperforming previous competition-level methods.",
+    "source": "Li_Panoptic_SegFormer_Delving_Deeper_Into_Panoptic_Segmentation_With_Transformers_CVPR_2022_paper.pdf",
+    "category": "method_metrics_segformer"
+  },
+  {
+    "id": 19,
+    "question": "Under a 1× training schedule, how does Panoptic SegFormer compare to MaskFormer?",
+    "ground_truth": "Panoptic SegFormer achieves 48.0% PQ in 12 epochs, surpassing MaskFormer even after 300 epochs.",
+    "source": "Li_Panoptic_SegFormer_Delving_Deeper_Into_Panoptic_Segmentation_With_Transformers_CVPR_2022_paper.pdf",
+    "category": "method_metrics_segformer"
+  },
+  {
+    "id": 20,
+    "question": "What is masked attention in Mask2Former and why is it introduced?",
+    "ground_truth": "Masked attention limits cross-attention to relevant foreground regions instead of the whole feature map, improving convergence and stability over global attention.",
+    "source": "Cheng_Masked-Attention_Mask_Transformer_for_Universal_Image_Segmentation_CVPR_2022_paper.pdf",
+    "category": "other_facts"
+  }
+]

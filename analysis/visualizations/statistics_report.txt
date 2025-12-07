@@ -1,0 +1,77 @@
+================================================================================
+RAG EVALUATION STATISTICS REPORT
+================================================================================
+
+Generated: 2025-12-04 06:32:13
+Total Questions Evaluated: 15
+Model: gpt-4o-mini
+Embedding Model: text-embedding-3-small
+
+--------------------------------------------------------------------------------
+BASELINE SYSTEM (No RAG)
+--------------------------------------------------------------------------------
+Average Response Time:  2.450 seconds
+Total Processing Time:  36.80 seconds
+Average Answer Length:  579 characters
+Min Response Time:      2.100 seconds
+Max Response Time:      2.800 seconds
+Std Dev Response Time:  0.222 seconds
+
+--------------------------------------------------------------------------------
+RAG SYSTEM
+--------------------------------------------------------------------------------
+Average Response Time:  5.170 seconds
+Total Processing Time:  77.60 seconds
+Average Answer Length:  1046 characters
+Average Sources Used:   3.00 documents
+Min Response Time:      3.800 seconds
+Max Response Time:      6.100 seconds
+Std Dev Response Time:  0.628 seconds
+
+--------------------------------------------------------------------------------
+COMPARATIVE ANALYSIS
+--------------------------------------------------------------------------------
+Response Time Difference: +2.720 seconds (+111.0%)
+Answer Length Difference: +468 characters (+80.8%)
+
+--------------------------------------------------------------------------------
+PERFORMANCE BY CATEGORY
+--------------------------------------------------------------------------------
+
+ADVANCED:
+  Questions: 1
+  Baseline Avg Time: 2.500s
+  RAG Avg Time: 5.400s
+  RAG Avg Sources: 3.00
+
+DATASETS:
+  Questions: 4
+  Baseline Avg Time: 2.325s
+  RAG Avg Time: 5.050s
+  RAG Avg Sources: 3.00
+
+FUNDAMENTALS:
+  Questions: 2
+  Baseline Avg Time: 2.250s
+  RAG Avg Time: 4.550s
+  RAG Avg Sources: 3.00
+
+METHODS:
+  Questions: 4
+  Baseline Avg Time: 2.725s
+  RAG Avg Time: 5.450s
+  RAG Avg Sources: 3.00
+
+METRICS:
+  Questions: 2
+  Baseline Avg Time: 2.200s
+  RAG Avg Time: 4.550s
+  RAG Avg Sources: 3.00
+
+VLM:
+  Questions: 2
+  Baseline Avg Time: 2.650s
+  RAG Avg Time: 5.550s
+  RAG Avg Sources: 3.00
+
+================================================================================

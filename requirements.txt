@@ -1,0 +1,34 @@
+# Core Dependencies
+langchain==0.1.0
+langchain-openai==0.0.2
+langchain-community==0.0.10
+langgraph==0.0.20
+
+# Vector Store
+faiss-cpu==1.7.4
+chromadb==0.4.22
+
+# Document Processing
+pypdf==3.17.4
+pypdf2==3.0.1
+unstructured==0.11.8
+python-magic-bin==0.4.14  # For Windows compatibility
+
+# Embeddings and LLMs
+openai==1.6.1
+tiktoken==0.5.2
+
+# Utilities
+python-dotenv==1.0.0
+pydantic==2.5.3
+pydantic-settings==2.1.0
+
+# CLI and UI
+click==8.1.7
+rich==13.7.0
+tqdm==4.66.1
+streamlit>=1.20.0  # Compatible with various Streamlit versions
+
+# Type Checking and Code Quality
+typing-extensions==4.9.0
+

@@ -1,0 +1,93 @@
+[
+  {
+    "id": 1,
+    "question": "What is panoptic segmentation and how does it differ from semantic segmentation?",
+    "category": "fundamentals",
+    "expected_topics": ["panoptic segmentation", "semantic segmentation", "instance segmentation", "stuff and things"]
+  },
+  {
+    "id": 2,
+    "question": "How is Panoptic Quality (PQ) calculated and what are its components?",
+    "category": "metrics",
+    "expected_topics": ["Panoptic Quality", "PQ", "SQ", "RQ", "segmentation quality", "recognition quality"]
+  },
+  {
+    "id": 3,
+    "question": "What is the iSAID dataset and what makes it suitable for aerial image segmentation?",
+    "category": "datasets",
+    "expected_topics": ["iSAID", "aerial images", "instance segmentation", "dataset characteristics"]
+  },
+  {
+    "id": 4,
+    "question": "Explain the architecture of Mask2Former and its key innovations.",
+    "category": "methods",
+    "expected_topics": ["Mask2Former", "masked attention", "transformer", "architecture"]
+  },
+  {
+    "id": 5,
+    "question": "What is Panoptic-DeepLab and how does it achieve bottom-up panoptic segmentation?",
+    "category": "methods",
+    "expected_topics": ["Panoptic-DeepLab", "bottom-up", "instance center", "semantic segmentation"]
+  },
+  {
+    "id": 6,
+    "question": "What are the main characteristics of the OpenEarthMap dataset?",
+    "category": "datasets",
+    "expected_topics": ["OpenEarthMap", "remote sensing", "land cover", "annotations"]
+  },
+  {
+    "id": 7,
+    "question": "How does multimodal fusion improve remote sensing image analysis?",
+    "category": "advanced",
+    "expected_topics": ["multimodal fusion", "remote sensing", "data integration", "complementary information"]
+  },
+  {
+    "id": 8,
+    "question": "What is RemoteCLIP and how does it adapt CLIP for remote sensing applications?",
+    "category": "vlm",
+    "expected_topics": ["RemoteCLIP", "CLIP", "vision-language", "remote sensing adaptation"]
+  },
+  {
+    "id": 9,
+    "question": "Explain the difference between IoU and Dice coefficient in segmentation evaluation.",
+    "category": "metrics",
+    "expected_topics": ["IoU", "Dice coefficient", "evaluation metrics", "overlap measures"]
+  },
+  {
+    "id": 10,
+    "question": "What is the SEN12MS dataset and what types of data does it contain?",
+    "category": "datasets",
+    "expected_topics": ["SEN12MS", "Sentinel-1", "Sentinel-2", "multi-spectral", "SAR"]
+  },
+  {
+    "id": 11,
+    "question": "How do transformers improve panoptic segmentation compared to CNN-based methods?",
+    "category": "methods",
+    "expected_topics": ["transformers", "attention mechanism", "CNN comparison", "global context"]
+  },
+  {
+    "id": 12,
+    "question": "What is the SpaceNet-8 challenge and what problem does it address?",
+    "category": "datasets",
+    "expected_topics": ["SpaceNet-8", "flood detection", "disaster response", "temporal analysis"]
+  },
+  {
+    "id": 13,
+    "question": "Explain the concept of stuff and things in panoptic segmentation.",
+    "category": "fundamentals",
+    "expected_topics": ["stuff", "things", "countable objects", "amorphous regions", "classification"]
+  },
+  {
+    "id": 14,
+    "question": "What is GeoRSCLIP and how does it improve upon standard CLIP models?",
+    "category": "vlm",
+    "expected_topics": ["GeoRSCLIP", "geographic information", "location-aware", "remote sensing"]
+  },
+  {
+    "id": 15,
+    "question": "How does Panoptic SegFormer leverage transformers for panoptic segmentation?",
+    "category": "methods",
+    "expected_topics": ["Panoptic SegFormer", "transformer architecture", "hierarchical features", "mask classification"]
+  }
+]
+
