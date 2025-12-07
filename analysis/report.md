@@ -339,20 +339,6 @@ Third, the modular architecture facilitates incremental improvements and customi
 
 Fourth, the web interface demonstrates the importance of user experience in making powerful technologies accessible to researchers who may not be comfortable with command-line tools or programming. The inclusion of features like real-time configuration adjustment, question history, and source preview enhances usability and encourages exploration.
 
-### Unexpected Findings
-
-Several aspects of the results were noteworthy or unexpected. The consistency of RAG advantages across all question categories was somewhat surprising—one might have hypothesized that RAG would be particularly beneficial for factual recall questions about datasets and metrics but less advantageous for conceptual questions about fundamental topics. The results suggest that even for questions about well-known concepts, grounding responses in specific research papers adds value through precise terminology, historical context, and formal definitions.
-
-The relatively low variance in the number of sources retrieved (always exactly three) indicates that similarity search consistently finds multiple relevant documents even for narrow questions. This suggests the paper collection has good coverage of topics and that the semantic similarity metric successfully identifies relationships between documents. However, it also raises the question of whether more adaptive retrieval would be beneficial for questions where a single definitive source exists versus questions requiring synthesis across many sources.
-
-The multimodal capability of the system, while not the focus of the evaluation, represents an interesting direction. The ability to upload images from papers and ask questions about them combines RAG with vision-language model capabilities, potentially enabling questions like "explain the architecture in this diagram" or "what do these results suggest." Exploring the effectiveness of this multimodal approach could be valuable future work.
-
-### Comparison with Related Work
-
-While this project focused on implementing and evaluating a practical system rather than advancing RAG techniques themselves, the results align with broader findings in the literature on retrieval-augmented generation. Research by Lewis et al. on RAG models and by Guu et al. on REALM has demonstrated that grounding language model responses in retrieved documents improves factuality and reduces hallucination. The current project extends these findings to a specific academic domain and emphasizes the importance of source attribution for research applications.
-
-The choice to use LangGraph for workflow orchestration represents a relatively recent approach to building RAG systems with explicit state management and traceability. This contrasts with earlier RAG implementations that used less structured pipelines. The benefits of this approach include easier debugging, better visibility into system behavior, and flexibility to add steps like query refinement or answer validation in the future.
-
 ### Implications for Future Research
 
 The success of the RAG approach in this domain suggests several promising directions for future research and development. Incorporating user feedback mechanisms where users can rate answer quality, flag inaccuracies, or request more detail would enable continuous improvement of retrieval strategies and prompt engineering. Implementing more sophisticated retrieval including hybrid search combining semantic and keyword matching, query expansion or reformulation to improve recall, filtering by metadata such as publication date or conference venue, and re-ranking retrieved documents based on relevance models could improve answer quality.
@@ -378,74 +364,6 @@ Adaptive retrieval strategies that dynamically determine the number of documents
 Metadata-aware retrieval could allow filtering or weighting by document characteristics such as publication venue (preferring CVPR over workshops), publication date (preferring recent papers), number of citations (as a proxy for impact), or specific authors or research groups. Users could specify preferences like "focus on recent papers" or "include foundational work."
 
 Re-ranking retrieved documents using more sophisticated relevance models, such as cross-encoders that jointly encode query and document for better relevance prediction than the bi-encoder approach used for initial retrieval, could improve the quality of the top results passed to the language model. This two-stage retrieval approach is common in modern information retrieval systems.
-
-### Advanced Natural Language Processing
-
-The current system uses relatively simple prompt engineering for answer generation. Several NLP enhancements could improve answer quality. Multi-step reasoning approaches where the system first identifies relevant information in retrieved documents, then plans an answer structure, and finally generates the response could lead to more organized and comprehensive answers.
-
-Answer validation and self-consistency checking could identify potentially unreliable responses. The system could generate multiple independent answers to the same question and check for consistency, flagging cases where answers diverge significantly. Claims could be verified by retrieving additional supporting documents or comparing against structured knowledge bases.
-
-Confidence scoring that provides users with an indication of answer reliability based on factors like relevance scores of retrieved documents, consistency across sources, and language model confidence could help users calibrate their trust in responses. Uncertainty quantification is particularly important for academic applications where incorrect information can have serious consequences.
-
-Claim attribution that identifies which specific sentences or phrases in the answer come from which sources would provide even finer-grained verifiability than the current document-level citations. This could be implemented using attention visualization or explicit extraction and citation of relevant passages.
-
-Support for multi-turn conversations where users can ask follow-up questions, request elaboration on specific points, or drill down into details while maintaining context would make the system more interactive. Implementing conversational memory and context management using LangGraph's stateful capabilities would enable this functionality.
-
-### Knowledge Base Integration
-
-The current system relies entirely on unstructured text from PDF papers. Integrating structured knowledge sources could enhance capabilities. Connecting to academic databases such as Semantic Scholar, Google Scholar, or arXiv APIs would enable automatic discovery of relevant papers based on queries, updating the document collection as new papers are published, and retrieving metadata like citation counts, author information, and references.
-
-Integration with knowledge graphs such as DBpedia, Wikidata, or domain-specific ontologies could provide structured factual information to complement the unstructured paper text. For instance, a knowledge graph could provide standardized dataset statistics, method relationships, or author affiliations.
-
-Citation network analysis could help identify foundational papers, emerging trends, and relationships between works. The system could answer questions like "what papers have built on Mask2Former?" or "what are the most cited works on panoptic segmentation?" by analyzing citation graphs.
-
-Supporting code repositories by indexing associated GitHub repositories, implementation details, and README documentation could help users not just understand methods conceptually but also implement them. Linking to official implementations and providing code examples would bridge the gap between reading papers and applying techniques.
-
-### Multimodal Enhancements
-
-The current system has basic image input capabilities but does not deeply process paper content beyond text. Several multimodal extensions could add substantial value. Extracting and indexing figures and diagrams from papers, performing image-to-text captioning to make them searchable, and enabling visual similarity search would allow questions like "find papers with similar architectures to this diagram."
-
-Table extraction and understanding could make quantitative results from papers queryable. Users could ask "what is the best reported mIoU on Cityscapes?" and the system could extract and compare results from results tables across multiple papers. This would require parsing tables from PDFs, extracting structured data, and implementing comparison logic.
-
-Equation recognition and semantic search would enable users to search for papers using specific mathematical formulations. For instance, finding all papers that define a particular loss function or use a specific optimization technique. This would require parsing LaTeX or visual equations, normalizing notation, and implementing mathematical similarity metrics.
-
-Supporting video explanations or presentations associated with papers (e.g., from conference presentations) could provide alternative explanations of complex concepts. Indexing video content and enabling search across both paper text and presentation transcripts would create a richer knowledge base.
-
-### User Experience Improvements
-
-Several refinements to the interface could enhance usability. Visualization of the retrieval and generation process, showing which documents were considered, why they were selected, and how they contributed to the answer, would provide transparency and help users understand system behavior. Interactive visualizations of attention weights or relevance scores could be illuminating.
-
-Customizable answer formats allowing users to specify desired answer characteristics such as technical level (introductory vs. advanced), length (brief summary vs. comprehensive explanation), or inclusion of specific elements (mathematical details, experimental results, etc.) would make the system adaptable to different use cases.
-
-Bookmarking and note-taking features that let users save interesting answers, organize them into collections, and annotate them with personal notes would support research workflows. Integration with reference management tools like Zotero or Mendeley could further enhance utility.
-
-Collaborative features such as sharing questions and answers with team members, commenting on answers, or building shared knowledge bases for research groups could make the system a hub for collaborative literature exploration.
-
-### Domain Expansion
-
-While the current system focuses on remote sensing and image segmentation, the architecture is domain-agnostic and could be extended to other fields. Creating specialized instances for domains such as medical literature, materials science, natural language processing, reinforcement learning, or computational biology would demonstrate generalizability. Each domain would require curating an appropriate paper collection and potentially tuning retrieval and generation parameters.
-
-Cross-domain knowledge transfer could be explored by building systems that span multiple related domains and can draw connections between fields. For instance, a system covering both computer vision and robotics could answer questions about how vision techniques are applied in robotic perception.
-
-Multilingual support would extend the system's reach beyond English-language papers. Many important works are published in languages other than English, and supporting multilingual retrieval and generation would be valuable for researchers worldwide. This would require multilingual embedding models, translation capabilities, and language-specific prompt engineering.
-
-### Evaluation and Benchmarking
-
-Developing more rigorous evaluation methodologies would enable better comparison of different approaches and tracking of improvements over time. Creating standardized benchmark question sets for academic question-answering across multiple domains with reference answers created by domain experts would enable automated evaluation using metrics like BLEU, ROUGE, or BERTScore.
-
-Human evaluation studies with actual researchers as users could provide insights into real-world utility. Comparing user satisfaction, time saved, and research productivity with and without the system would quantify practical benefits. A/B testing of different configurations could identify optimal design choices.
-
-Adversarial testing with deliberately challenging or ambiguous questions, questions designed to expose limitations, and queries about topics not well-covered in the document collection would identify failure modes and guide improvement priorities.
-
-### Deployment and Scalability
-
-For production deployment at scale, several engineering improvements would be important. Implementing caching of frequent queries, embeddings, and retrieval results could reduce costs and improve response times. Distributed deployment with load balancing, horizontal scaling, and fault tolerance would support many concurrent users. Monitoring and logging of system performance, error rates, and user interactions would enable operational awareness.
-
-Cost optimization strategies such as using cheaper models for certain components (e.g., smaller embedding models if quality is sufficient), implementing rate limiting and quotas, and exploring open-source alternatives to commercial APIs would reduce operational costs. Benchmarking the cost-performance trade-offs of different model choices would inform deployment decisions.
-
-Privacy-preserving deployment options such as on-premise deployment for organizations with sensitive documents, federated learning approaches that keep documents private, and differential privacy techniques for analytics would address security and confidentiality concerns for proprietary or confidential research.
-
-These future directions represent a rich landscape of opportunities to enhance the system's capabilities, broaden its applicability, improve its usability, and understand its limitations more deeply. The modular architecture established in this project provides a solid foundation for pursuing these extensions incrementally based on user needs and resource availability.
 
 ## Conclusion
 
